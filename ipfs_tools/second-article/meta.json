@@ -1,0 +1,11 @@
+{
+	"title" : "Quantum Neural Networks Embedded on a Block Chain for Rapid Adiabitic Transport of Qubits",
+	"authors" : "Hopper, David; Train, Peter",
+	"abstract" : "We propose a formal theory of quantum neural networks as a means for their embedding into a block chain. Graph theory, quantum field theory, a roll of a die, and some luck allows us to show that a qubit distributed across the network can undergo rapid adiabatic transport between eigenstates. Discussions pertaining to this system as the one and only (OaO) quantum computing architecture are discussed.",
+	"tags" : ["Buzz", "words", "Quantum block chain"],
+	"timestamp" : "January 20, 2018 16:24:29",
+	"doi" : "0x12345_2",
+	"submitter" : "0x12345",
+	"revision#" : 1,
+	"reviewStatus" : [0, 0, 0, 0, 1]
+}

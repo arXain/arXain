@@ -31,12 +31,12 @@ else
 	ALL_KEYS=$(ipfs key list -l)
 	PUBLIC_KEY=$(echo $ALL_KEYS | grep -Eo "([a-zA-Z0-9]+)( arXain-key)" | grep -Eo "([a-zA-Z0-9]+)" | head -1)
 
-	echo "peerID found @ $PUBLIC_KEY"
+	echo "peerID: $PUBLIC_KEY"
 fi
 
 cd arXain-repo
 
 # set up config file for easily accessing stuff
-printf '#!/bin/bash\n\nauthorID="%s"\npeerID="%s"\n' "$ETH_ADDRESS" "$PUBLIC_KEY" > config.sh
+printf '#!/bin/bash\n\nauthorID="%s"\npeerID="%s"\n' "$ETH_ADDRESS" "$PUBLIC_KEY" > config
 
-chmod u+x config.sh
+chmod u+x config
