@@ -5,7 +5,7 @@ Make sure that you have the latest branch of arXain and are in the arXain/ipfs_t
 
 After knowing your author ID (which should be your ethereum wallet address), initialize the local repository that papers and reviews will go into.
 ``
->./arXain-init.sh <insert-ether-address>
+./arXain-init.sh <insert-ether-address>
 ``
 
 You will get  reponse with your peer ID. Write down this hash and keep it safe, as it will allow people to access your directory of papers and reviews through /ipns/<peerID>, even after you have updated the files and the hash changes. The files are initialized in the home directory at ~/arXain-repo. Here you can find a config file that shows your peer ID and your authorID should you forget them.
