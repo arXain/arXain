@@ -3,38 +3,53 @@ App = {
   contracts: {},
 
   init: function() {
-    // Load pets.
-    $.getJSON('../pets.json', function(data) {
-      var petsRow = $('#petsRow');
-      var petTemplate = $('#petTemplate');
+    // Load paper.
+    $.getJSON('../papers.json', function(data) {
+      var articleRow = $('#articleRow');
+      var articleTemplate = $('#articleTemplate');
 
       for (i = 0; i < data.length; i ++) {
-        petTemplate.find('.panel-title').text(data[i].name);
-        petTemplate.find('img').attr('src', data[i].picture);
-        petTemplate.find('.pet-breed').text(data[i].breed);
-        petTemplate.find('.pet-age').text(data[i].age);
-        petTemplate.find('.pet-location').text(data[i].location);
-        petTemplate.find('.btn-adopt').attr('data-id', data[i].id);
+        articleTemplate.find('.article-title').text(data[i].title);
+        articleTemplate.find('.article-title').attr('href', "http://localhost:8080/ipns/"+data[i].submitter+"/"+data[i].doi+"/"+data[i].doi+".pdf")
+        articleTemplate.find('.article-authors').text(data[i].authors);
+        articleTemplate.find('.article-submitter').text(data[i].submitter);
+        articleTemplate.find('.article-tags').text(data[i].tags);
+        articleTemplate.find('.article-doi').text(data[i].doi);
+        articleTemplate.find('.article-abstract').text(data[i].abstract);
+        articleTemplate.find('.article-date').text(data[i].timestamp);
 
-        petsRow.append(petTemplate.html());
+        articleRow.append(articleTemplate.html());
       }
     });
 
-    return App.initWeb3();
+    //return App.initWeb3();
   },
-
+  /*
   initWeb3: function() {
-    /*
-     * Replace me...
-     */
+    // Is there an injected web3 instance?
+    if (typeof web3 !== 'undefined') {
+     App.web3Provider = web3.currentProvider;
+     } else {
+       // If no injected web3 instance is detected, fall back to Ganache
+         App.web3Provider = new Web3.providers.HttpProvider('http://localhost:7545');
+         }
+         web3 = new Web3(App.web3Provider);
 
     return App.initContract();
   },
 
   initContract: function() {
-    /*
-     * Replace me...
-     */
+    $.getJSON('Adoption.json', function(data) {
+      // Get the necessary contract artifact file and instantiate it with truffle-contract
+      var AdoptionArtifact = data;
+      App.contracts.Adoption = TruffleContract(AdoptionArtifact);
+
+      // Set the provider for our contract- again this should be MetaMask
+      App.contracts.Adoption.setProvider(App.web3Provider);
+
+      // Use our contract to retrieve and mark the adopted pets
+      return App.markAdopted();
+    });
 
     return App.bindEvents();
   },
@@ -44,9 +59,6 @@ App = {
   },
 
   markAdopted: function(adopters, account) {
-    /*
-     * Replace me...
-     */
   },
 
   handleAdopt: function(event) {
@@ -54,11 +66,8 @@ App = {
 
     var petId = parseInt($(event.target).data('id'));
 
-    /*
-     * Replace me...
-     */
   }
-
+  */
 };
 
 $(function() {
