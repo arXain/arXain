@@ -61,8 +61,10 @@ App = {
 		// Execute initialManuscript as a transaction by sending account
 		return manuscriptInstance.initialManuscript(corpusID, doi, {from: account});
 	  }).then(function(result) {
+        $('.success-text').show();
 		console.log('Successful submission');
 	  }).catch(function(err) {
+        $('.failure-text').show();
 		console.log(err.message);
 	  });
 	});
