@@ -20,6 +20,12 @@ contract Manuscript{
         nAccepted = 0;
     }
 
+    function getManuscript() constant returns (
+        string _corpusID, string _doi, uint8 _revision,
+        uint8 _nInReview, uint8 _nAccepted) {
+            return(corpusID, doi, revision, nInReview, nAccepted);
+        }
+
     function initialManuscript(string _corpusID, string _doi){
         /*
         TODO: PATCH TRUFFLE FUNCTIONALITY
