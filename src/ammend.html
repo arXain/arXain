@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>The arXain</title>
+    <title>arXain submission</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -27,7 +27,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">arXain</a>
+          <a class="navbar-brand" href="/">arXain</a>
         </div>
 <div id="navbar" class="navbar-collapse collapse">
           <form class="navbar-form navbar-right">
@@ -44,42 +44,33 @@
 
     <div class="jumbotron">
       <div class="container">
-        <h1>Welcome to the arXain</h1>
-        <p><a class="btn btn-primary btn-lg" href="/submit.html" role="button">Submit a paper &raquo;</a></p>
+          <h1><center>arXain Revision Form</center></h1>
       </div>
     </div>
-
-      <div class="container">
-      <div id="articleRow" class="row">
-        <!-- ARTICLES LOAD HERE -->
-      </div>
-    </div>
-    <div class="container">
 
       <div id="articleRow" class="row">
-        <!-- ARTICLES LOAD HERE -->
-      </div>
-    </div>
-
-    <div id="articleTemplate" style="display: none;">
       <div class="col-sm-12 col-md-12 col-lg-12">
         <div class="panel panel-default panel-article">
           <div class="panel-heading">
-              <h3 class="panel-title"><a class="article-title" href=>My Paper Title</a></h3>
+              <h3 class="panel-title"><center>revise here</center></h3>
           </div>
           <div class="panel-body">
-            <br/>
-            <strong>Abstract</strong>:<br>
-            <p><span class="article-abstract">my first paper is this.</span></p><br/>
-            <strong>Authors</strong>: <span class="article-authors">Golden Retriever</span><br/>
-            <strong>Submitter Address</strong>: <span class="article-submitter">Golden Retriever</span><br/><br/>
-            <strong>Tags</strong>: <span class="article-tags">Warren, MI</span><br/><br/>
-            <strong>DOI</strong>: <span class="article-doi">Warren, MI</span><br/><br/>
-            <strong>Date Added</strong>: <span class="article-date">Warren, MI</span><br/><br/>
+            <center>
+            <div class="form-group" id="hash-form">
+              <strong>Paper Hash</strong>: <input type="text" placeholder="Revised Paper Hash" class="submit_hash">
+            </div>
+            <div class="form-group" id="doi-form">
+              <strong>DOI</strong>: <input type="text" placeholder="DOI" class="submit_doi">
+            </div>
+            <button type="submit" class="btn btn-default btn-submit">Submit</button>
+            <br/><br>
+            </center>
           </div>
         </div>
       </div>
+      </div>
     </div>
+
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -87,6 +78,6 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/web3.min.js"></script>
     <script src="js/truffle-contract.js"></script>
-    <script src="js/app.js"></script>
+    <script src="js/app_ammend.js"></script>
   </body>
 </html>
