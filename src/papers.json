@@ -1,0 +1,35 @@
+[
+	{
+		"title" : "arXain genesis paper",
+		"authors" : "Haney, Bijon; Hopper, David; Kohn, Saul; Mistry, Khilesh",
+		"abstract" : "This is the first paper on arXain, the distributed academic journal.",
+		"tags" : ["first", "genesis", "arXain"],
+		"timestamp" : "January 19, 2018 23:47:00",
+		"doi" : "genesis-paper",
+		"submitter" : "QmQWbdLsDw3f4k2x2K8d9bjRLCaKHNEjP3nLPdgEhnyks5",
+		"revision#" : 1,
+		"reviewStatus" : [1]
+	},
+	{
+		"title" : "arXain third paper",
+		"authors" : "Haney, Bijon; Hopper, David; Kohn, Saul; Mistry, Khilesh",
+		"abstract" : "This is the third paper on arXain, the distributed academic journal. It is completely wrong.",
+		"tags" : ["third", "not genesis", "arXain"],
+		"timestamp" : "January 20, 2018 00:08:00",
+		"doi" : "second-paper",
+		"submitter" : "QmQWbdLsDw3f4k2x2K8d9bjRLCaKHNEjP3nLPdgEhnyks5",
+		"revision#" : 1,
+		"reviewStatus" : [0, 0, 0, 0]
+	},
+	{
+		"title" : "arXain second paper",
+		"authors" : "Haney, Bijon; Hopper, David; Kohn, Saul; Mistry, Khilesh",
+		"abstract" : "This is the second paper on arXain, the distributed academic journal.",
+		"tags" : ["first", "genesis", "arXain"],
+		"timestamp" : "January 20, 2018 00:08:00",
+		"doi" : "second-paper",
+		"submitter" : "QmQWbdLsDw3f4k2x2K8d9bjRLCaKHNEjP3nLPdgEhnyks5",
+		"revision#" : 1,
+		"reviewStatus" : [1, 0, 1, 1, 1, 0]
+	}
+]
