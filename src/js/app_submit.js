@@ -3,28 +3,6 @@ App = {
   contracts: {},
 
   init: function() {
-    // Load pets.
-    //getJSON(url,data,success(data,status,xhr)).
-	// success is an optional function to run if the request succeeds. 
-	//data - contains the data returned from the server.
-    //status - contains a string containing request status ("success", "notmodified", "error", "timeout", or "parsererror").
-	//xhr - contains the XMLHttpRequest object
-    $.getJSON('../pets.json', function(data) {
-      var petsRow = $('#petsRow');
-      var petTemplate = $('#petTemplate');
-
-      for (i = 0; i < data.length; i ++) {
-        petTemplate.find('.panel-title').text(data[i].name);
-        petTemplate.find('img').attr('src', data[i].picture);
-        petTemplate.find('.pet-breed').text(data[i].breed);
-        petTemplate.find('.pet-age').text(data[i].age);
-        petTemplate.find('.pet-location').text(data[i].location);
-        petTemplate.find('.btn-adopt').attr('data-id', data[i].id);
-
-        petsRow.append(petTemplate.html());
-      }
-    });
-
     return App.initWeb3();
   },
 
@@ -32,58 +10,43 @@ App = {
     // Is there an injected web3 instance?
     if (typeof web3 !== 'undefined') {
      App.web3Provider = web3.currentProvider;
+     console.log('I found a web3 provider');
      } else {
        // If no injected web3 instance is detected, fall back to Ganache
-         App.web3Provider = new Web3.providers.HttpProvider('http://localhost:7545');
+         console.log("I did not find a web3 instance")
+         App.web3Provider = new Web3.providers.HttpProvider('http://localhost:8545');
          }
          web3 = new Web3(App.web3Provider);
         return App.initContract();
   },
 
   initContract: function() {
-	$.getJSON('Adoption.json', function(data) {
+	$.getJSON('Manuscript.json', function(data) {
 	  // Get the necessary contract artifact file and instantiate it with truffle-contract
-	  var AdoptionArtifact = data;
-	  App.contracts.Adoption = TruffleContract(AdoptionArtifact);
+	  var ManuscriptArtifact = data;
+	  App.contracts.Manuscript = TruffleContract(ManuscriptArtifact);
 
 	  // Set the provider for our contract
-	  App.contracts.Adoption.setProvider(App.web3Provider);
+	  App.contracts.Manuscript.setProvider(App.web3Provider);
 
-	  // Use our contract to retrieve and mark the adopted pets
-	  return App.markAdopted();
+	  // do not submit automatically -- catch instead
+	  //return App.submitManuscript();
 	});
 
     return App.bindEvents();
   },
 
   bindEvents: function() {
-    $(document).on('click', '.btn-adopt', App.handleAdopt);
+    $(document).on('click', '.btn-submit', App.handleSubmit);
   },
-
-  markAdopted: function(adopters, account) {
-	var adoptionInstance;
-
-	App.contracts.Adoption.deployed().then(function(instance) {
-	  adoptionInstance = instance;
-
-	  return adoptionInstance.getAdopters.call();
-	}).then(function(adopters) {
-	  for (i = 0; i < adopters.length; i++) {
-		if (adopters[i] !== '0x0000000000000000000000000000000000000000') {
-		  $('.panel-pet').eq(i).find('button').text('Success').attr('disabled', true);
-		}
-	  }
-	}).catch(function(err) {
-	  console.log(err.message);
-	});
-  },
-
-  handleAdopt: function(event) {
+  handleSubmit: function(event) {
     event.preventDefault();
 
-    var petId = parseInt($(event.target).data('id'));
-
-	var adoptionInstance;
+    var corpusID = $('#hash-form').find('.submit_hash').val();
+    console.log('corpusID: '+corpusID);
+    var doi = $('#doi-form').find('.submit_doi').val();
+    console.log('doi: '+doi);
+	var manuscriptInstance;
 
 	web3.eth.getAccounts(function(error, accounts) {
 	  if (error) {
@@ -92,13 +55,13 @@ App = {
 
 	  var account = accounts[0];
 
-	  App.contracts.Adoption.deployed().then(function(instance) {
-		adoptionInstance = instance;
+	  App.contracts.Manuscript.deployed().then(function(instance) {
+		manuscriptInstance = instance;
 
-		// Execute adopt as a transaction by sending account
-		return adoptionInstance.adopt(petId, {from: account});
+		// Execute initialManuscript as a transaction by sending account
+		return manuscriptInstance.initialManuscript(corpusID, doi, {from: account});
 	  }).then(function(result) {
-		return App.markAdopted();
+		console.log('Successful submission');
 	  }).catch(function(err) {
 		console.log(err.message);
 	  });
