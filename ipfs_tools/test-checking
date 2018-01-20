@@ -1,0 +1,13 @@
+#!/bin/bash
+
+teststring=$(ipfs key list)
+checkstring="arXain-key"
+echo $teststring
+echo $checkstring
+
+echo ${teststring} | grep --quiet "${checkstring}"
+
+if [ $? = 1 ]
+then
+	echo "$checkstring was not found"
+fi
