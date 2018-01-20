@@ -34,6 +34,6 @@ cp -a $DIRECTORY. $targetDirectory
 # Add the latest version to IPFS and get the hash
 CORPUS_HASH=$(ipfs add -r -Q ${targetDirectory})
 
-echo "Review v${numVersions} of ${paperDirectory} hashed to ${CORPUS_HASH}"
+echo "Version v${numVersions} of ${paperDirectory} hashed to ${CORPUS_HASH}"
 echo "AuthorID ${authorID}"
 
