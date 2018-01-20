@@ -27,6 +27,7 @@ contract Manuscript{
         if (revision != 0) return;
         setCorpusID(_corpusID);
         setDoi(_doi);
+        revision++;
     }
 
     function reviseManuscript(string _corpusID, string _doi){
@@ -35,6 +36,7 @@ contract Manuscript{
         if (msg.sender != getAddress()) return;
         */
         if (revision == 0) return;
+        /* Most gas efficient was to compare strings */
         if(keccak256(_doi) != keccak256(doi)) return;
         setCorpusID(_corpusID);
         revision++;
