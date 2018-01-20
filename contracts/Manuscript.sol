@@ -27,21 +27,18 @@ contract Manuscript{
         }
 
     function initialManuscript(string _corpusID, string _doi){
-        /*
-        TODO: PATCH TRUFFLE FUNCTIONALITY
-        if (msg.sender != getAddress()) return;
-        */
+        //if (msg.sender != getAddress()) return;
+        
         if (revision != 0) return;
         setCorpusID(_corpusID);
         setDoi(_doi);
         revision++;
     }
 
-    function reviseManuscript(string _corpusID, string _doi){
-        /*
-        TODO: PATCH TRUFFLE FUNCTIONALITY
-        if (msg.sender != getAddress()) return;
-        */
+    function amendManuscript(string _corpusID, string _doi){
+        
+        //if (msg.sender != getAddress()) return;
+        
         if (revision == 0) return;
         /* Most gas efficient was to compare strings */
         // must be revising the on-contract DOI
@@ -55,11 +52,7 @@ contract Manuscript{
 
     function reviewManuscript(string _reviewID, string _doi,
                               uint8 _status){
-        /*
-        TODO: PATCH TRUFFLE FUNCTIONALITY
-        // can't be reviewed by owner
-        if (msg.sender == getAddress()) return;
-        */
+        //if (msg.sender == getAddress()) return;
 
         // must be reviewing the on-contract DOI
         if(keccak256(_doi) != keccak256(doi)) return;
