@@ -5,7 +5,7 @@ DIRECTORY="$@"
 # Get the confi settings
 cd ~/arXain-repo
 
-. ./config.sh
+. ./config
 
 numPapers=$(find ${authorID}/ -type d -maxdepth 1 | wc -l)
 numPapers=$(echo ${numPapers//[[:blank:]]/})
@@ -25,7 +25,7 @@ numVersions=$(echo ${numVersions//[[:blank:]]/})
 cd "$paperDirectory"
 mkdir v"$numVersions"
 cd v"$numVersions"
-targetDirectory=pwd
+targetDirectory=$(pwd)
 
 cp -a $DIRECTORY. $targetDirectory
 
