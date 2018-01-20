@@ -29,6 +29,18 @@ contract Manuscript{
         setDoi(_doi);
     }
 
+    function reviseManuscript(string _corpusID, string _doi){
+        /*
+        TODO: PATCH TRUFFLE FUNCTIONALITY
+        if (msg.sender != getAddress()) return;
+        */
+        if (revision == 0) return;
+        if(keccak256(_doi) != keccak256(doi)) return;
+        setCorpusID(_corpusID);
+        revision++;
+    }
+
+
     function getStatus() constant returns (uint){
         return uint(status);
     }
