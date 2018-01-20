@@ -2,6 +2,7 @@ pragma solidity ^0.4.11;
 
 import "./Mortal.sol";
 
+
 contract Manuscript{
     string corpus;
     Mortal m;
