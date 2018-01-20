@@ -54,14 +54,17 @@ App = {
 	  }
 
 	  var account = accounts[0];
-
-	  App.contracts.Manuscript.deployed().then(function(instance) {
-		manuscriptInstance = instance;
-
+      console.log('right before manuscript.')
+	  App.contracts.Manuscript.new().then(function(instance) {
+        console.log('I am before instance is named manuscriptInstance')
+        manuscriptInstance = instance;
 		// Execute initialManuscript as a transaction by sending account
+        console.log('instance address: '+manuscriptInstance.address)
 		return manuscriptInstance.initialManuscript(corpusID, doi, {from: account});
 	  }).then(function(result) {
         $('.success-text').show();
+        $('.success-text').text('Success!\n\n Transaction reciept: '+result['tx']);
+        console.log(result)
 		console.log('Successful submission');
 	  }).catch(function(err) {
         $('.failure-text').show();
