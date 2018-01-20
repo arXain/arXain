@@ -59,3 +59,23 @@ Published to QmZtAAiQk93eM9mgyirwZHSk7rYoatus5C9SToVq4CxxB5: /ipfs/QmZ7Lg3752Vh7
 
 Directing your ipfs browser to ``/ipns/QmZtAAiQk93eM9mgyirwZHSk7rYoatus5C9SToVq4CxxB5`` now lets you see your submission.
 
+
+## Reviewing others work
+Peer-review of papers is a corner stone of modern science. We would like to record peer reviews on IPFS and the block chain. To do this, you should create a directory with the contents of your review (a simple text file, a commented pdf, etc.). with the full path of this review directory known, and the DOI of the paper under review, run the following command
+
+``
+david$./arXain-review.sh -f /path/to/review/materials -d <insert DOI>
+Review v1 of 0x0043_22 hashed to QmdQ6ivuAg8QmhysH9U4CRERzZirwWktLxQLFDD1YYyf23
+AuthorID 0x12345
+``
+
+Multiple reviews can be resubmitted and are tracked in the same directory. Of course, it is good practice to re-publish everytime a content addition is made.
+
+## Revising your own work
+Perhaps your first article received some constructive feedback and you have made changes to improve your manuscript. You then want to upload your latest revision for everyone to see. This is very similar to submitting a Review of other scholar's work. Prepare your revised materials in a directory and note the full path, then run the command
+
+``
+david$ ./arXain-revise.sh -f /path/to/latest/revision -d <insert DOI>
+Revision v2 of 0x12345_2 hashed to QmTQeD2GWf13cE7W6i1S7GHwG1jqgU77QgtEftF3mT9x6y
+AuthorID 0x12345
+``
