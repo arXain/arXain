@@ -42,12 +42,13 @@ App = {
   handleSubmit: function(event) {
     event.preventDefault();
 
-    $('.success-text').show();
-
-    var corpusID = $('#hash-form').find('.submit_hash').val();
-    console.log('corpusID: '+corpusID);
-    var doi = $('#doi-form').find('.submit_doi').val();
-    console.log('doi: '+doi);
+    var corpusID = $('.amend_hash').val();
+    console.log('amendID: '+corpusID);
+    var doi = $('.amend_doi').val();
+    console.log('amend_doi: '+doi);
+    var txHash = $('.amend_contract').val();
+    console.log('amend contract: '+txHash);
+    console.log();
 	var manuscriptInstance;
 
 	web3.eth.getAccounts(function(error, accounts) {
@@ -56,13 +57,13 @@ App = {
 	  }
 
 	  var account = accounts[0];
-
+      console.log(typeof(account))
 	  App.contracts.Manuscript.deployed().then(function(instance) {
-		manuscriptInstance = instance;
-
-		// Execute initialManuscript as a transaction by sending account
-		return manuscriptInstance.initialManuscript(corpusID, doi, {from: account});
+         manuscriptInstance = App.contracts.Manuscript.at(txHash);
+		//
+		return manuscriptInstance.amendManuscript(corpusID, doi, {from: account});
 	  }).then(function(result) {
+        $('.success-text').show();
 		console.log('Successful submission');
 	  }).catch(function(err) {
 		console.log(err.message);
