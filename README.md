@@ -74,7 +74,9 @@ MetaMask and Javascript.
 On the Ethereum side, setting up the Truffle Ethereum framework and test
 networks were challenging. Learning the limits of Solidity and constantly
 reminding ourselves that we had to remain decentralized was hard!
-The IPFS side required a lot of clever regex-ing.
+The IPFS side required a lot of clever regex-ing. Ensuring that public access
+to researchers manuscript and review history requires other proper identification
+and distribution on the network.
 
 The hardest part was using MetaMask and Javascript to call our contracts
 and connect the blockchain to the browser. We struggled for about hours
@@ -86,7 +88,8 @@ new to functional programming.
 Closing all the curly bois and close parentheticals in javascript.
 Learning a whole lot about the blockchain and IPFS. We went into this
 weekend wanting to learning about how the blockchain worked, and came out
-learning about Solidity, IPFS, Javascript, and a whole lot more.
+learning about Solidity, IPFS, Javascript, and a whole lot more. You can 
+see our "genesis-paper"on an IPFS gateway (a bridge between HTTP and IPFS) here
 
 ## What we learned
 
