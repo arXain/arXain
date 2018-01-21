@@ -91,8 +91,16 @@ learning about Solidity, IPFS, Javascript, and a whole lot more.
 
 ## What we learned
 
+We went into this with knowledge that was a way to write smart contracts, there 
+existed the IPFS, and minimal Javascript. 
+
 We learned intimate knowledge of setting up Ethereum truffle frameworks, 
 ganache, and test networks along with the development side of Ethereum
 dApps like the Solidity language, and javascript tests with the Mocha framework. 
 
+We learned how to navigate the filespace of IPFS, hash and and organize directories, 
+and how the file distribution works on a network of P2P swarming. 
+
 ## What's next for arXain
+
+graduate from the physics dept. 
