@@ -44,6 +44,7 @@ App = {
 
     var contractAddr = $('.status_hash').val();
     var manuscriptInstance = App.contracts.Manuscript.at(contractAddr);
+    console.log('contract address: '+contractAddr);
 
 	web3.eth.getAccounts(function(error, accounts) {
 	  if (error) {
@@ -59,7 +60,8 @@ App = {
           '<b>doi:</b> '+result[1]+'<br>'+
           '<b>revision #:</b> '+result[2]+'<br>'+
           '<b>reviews (Needs work):</b> '+result[3]+'<br>'+
-          '<b>reviews (Acceptable):</b> '+result[4]+'<br>'
+          '<b>reviews (Acceptable):</b> '+result[4]+'<br>'+
+          '<b>IPFS link:</b> <a href="http://localhost:8080/ipfs/'+result[0]+'">http://localhost:8081/ipfs/'+result[0]+'</a><br>'
           );
           console.log(
           'paperID: '+result[0]+'\n'+
