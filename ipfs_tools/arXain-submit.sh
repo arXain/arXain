@@ -1,20 +1,26 @@
 #!/bin/bash
 
-DIRECTORY="$@"
+while getopts a:f:d: option
+do
+	case "${option}"
+	in
+	a)	authorID=${OPTARG};;
+	f)	DIRECTORY=${OPTARG};;
+	d)	DOI=${OPTARG};;
+	esac
+done
 
 # Get the confi settings
-cd ~/arXain-repo
+cd ~/arXain-repo/"${authorID}"/manuscripts
 
-. ./config
-
-numPapers=$(find ${authorID}/ -type d -maxdepth 1 | wc -l)
+numPapers=$(find . -type d -maxdepth 1 | wc -l)
 numPapers=$(echo ${numPapers//[[:blank:]]/})
 
 
 #Calculate the save directory
 paperDirectory="${authorID}_${numPapers}"
 
-cd "$authorID"
+
 
 mkdir "$paperDirectory"
 
@@ -32,8 +38,8 @@ cp -a $DIRECTORY. $targetDirectory
 # Add the latest version to IPFS and get the hash
 CORPUS_HASH=$(ipfs add -r -Q ${targetDirectory})
 
-echo "${paperDirectory}/v${numVersions}/ hashed to ${CORPUS_HASH}"
-echo "AuthorID ${authorID}"
+echo "Initial submission of ${paperDirectory} hashed to ${CORPUS_HASH}"
+echo "DOI ${DOI}"
 
 
 

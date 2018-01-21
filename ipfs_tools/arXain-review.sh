@@ -1,18 +1,17 @@
 #!/bin/bash
 
-while getopts f:d: option
+while getopts a:f:d: option
 do
 	case "${option}"
 	in
+	a)	authorID=${OPTARG};;
 	f)	DIRECTORY=${OPTARG};;
 	d)	DOI=${OPTARG};;
 	esac
 done
 
 # Get the confi settings
-cd ~/arXain-repo
-
-. ./config
+cd ~/arXain-repo/"${authorID}"/reviews
 
 #Calculate the save directory
 paperDirectory="${DOI}"
