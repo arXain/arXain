@@ -1,30 +1,29 @@
 #!/bin/bash
 
-while getopts f:d: option
+while getopts a:f:d: option
 do
 	case "${option}"
 	in
+	a)	authorID=${OPTARG};;
 	f)	DIRECTORY=${OPTARG};;
 	d)	DOI=${OPTARG};;
 	esac
 done
 
 # Get the confi settings
-cd ~/arXain-repo
+cd ~/arXain-repo/"${authorID}/manuscripts"
 
-. ./config
 
 #Calculate the save directory
 paperDirectory="${DOI}"
+cd "$paperDirectory"
 
-cd "${authorID}"
 
-mkdir "${paperDirectory}"
-
-numVersions=$(find ${paperDirectory}/ -type d -maxdepth 1 | wc -l)
+numVersions=$(find . -type d -maxdepth 1 | wc -l)
 numVersions=$(echo ${numVersions//[[:blank:]]/})
 
-cd "$paperDirectory"
+#echo $numVersions
+
 mkdir v"$numVersions"
 cd v"$numVersions"
 targetDirectory=$(pwd)
