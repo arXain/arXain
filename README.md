@@ -1,4 +1,4 @@
-<div style="text-align: center;"><img src="https://github.com/david-hopper/arXain/blob/master/src/images/logo_name.png" alt="arXain" /></div>
+<center><img src="https://github.com/david-hopper/arXain/blob/master/src/images/logo_name.png" alt="arXain" /></center>
 
 ## Inspiration
 
@@ -68,6 +68,15 @@ DAVID FILL ME IN, INCLUDING DETAILS ABOUT THE WEBPAGE BEING HOSTED ON IPFS
 . Then we connected everything using MetaMask and Javascript (BIJAN FILL IN THIS PART)
 
 ## Challenges we ran into
+
+On the Ethereum side, setting up the truffle Ethereum framework and test 
+networks were challenging. Learning the limits of Solidity and the power 
+at the same time was also a bit of a struggle.
+
+On the ipfs side, DAVID, BIJAN
+
+Though the hardest part was connected the MetaMask side to the blockchain 
+and using Javascript to call our contracts, interacting with browser 
 
 ## Accomplishments that we're proud of
 
