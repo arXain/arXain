@@ -65,7 +65,7 @@ App = {
 		console.log(err.message);
 	  });
         $('.success-text').show();
-        $('.success-text').text('Success! Put your TX has in the field labeled TX hash.');
+        $('.success-text').text('Put your TX has in the field labeled TX hash.');
 		console.log('Successful contract creation.');
         $('.btn-create').hide();
         $('.btn-submit').show();

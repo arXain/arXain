@@ -11,8 +11,6 @@ App = {
       for (i = 0; i < data.length; i ++) {
         // Pin the data locally to speed up loading and future network distribution
         // We can change this last part to be ...=/ipfs/"+data[i].corpusID"/recursive=true
-        $.get("http://localhost:5001/api/v0/pin/add?arg=/ipns/"+data[i].submitter+"/"+data[i].doi"/&recursive=true");
-        
         articleTemplate.find('.article-title').text(data[i].title);        
         articleTemplate.find('.article-title').attr('href', "http://localhost:8080/ipns/"+data[i].submitter+"/"+data[i].doi+"/"+data[i].doi+".pdf");
         articleTemplate.find('.article-authors').text(data[i].authors);
