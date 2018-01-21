@@ -1,4 +1,5 @@
 ## Inspiration
+
 Peer-review science is critical to modern science, engineering, and healthcare 
 endeavors. However, the system for implementing this process has lagged behind 
 and results in expensive costs for publishing and accessing material, long turn 
@@ -25,7 +26,7 @@ platform based on the arXiv, but in a completely decentralized manner.
 Users utilize, maintain, and grow the network of scholarship by simply 
 running a simple program and web interface.
 
-(https://github.com/david-hopper/arXain/blob/master/src/images/logo_small.png?raw=true)
+<img src="//github.com/david-hopper/arXain/blob/master/src/images/logo_small.png?raw=true" alt="arXain" />
 
 ## What it does
 
