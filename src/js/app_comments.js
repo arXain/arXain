@@ -42,13 +42,13 @@ App = {
   handleSubmit: function(event) {
     event.preventDefault();
 
-    var corpusID = $('.amend_hash').val();
-    console.log('amendID: '+corpusID);
-    var doi = $('.amend_doi').val();
-    console.log('amend_doi: '+doi);
-    var contractAddr = $('.amend_contract').val();
-    console.log('contractAddr :'+contractAddr);
-
+    var contractAddr = $('.contract_hash').val();
+    var commentHash = $('.comment_hash').val();
+    console.log('comment hash of type '+typeof(commentHash)+' with val '+commentHash)
+    var doi = $('.comment_doi').val();
+    console.log('doi of type '+typeof(doi)+' with val '+doi)
+    var review = $('input:radio[name=review]:checked').val();
+    console.log('review bool of type '+typeof(review)+' with val '+review)
     var manuscriptInstance = App.contracts.Manuscript.at(contractAddr);
 
 	web3.eth.getAccounts(function(error, accounts) {
@@ -58,13 +58,14 @@ App = {
 
 	  var account = accounts[0];
       console.log(typeof(account))
-	  manuscriptInstance.amendManuscript(corpusID, doi).then(function(result) {
-        $('.success-text').show();
-        $('.success-text').text('Successfully submitted revision.');
+	  manuscriptInstance.reviewManuscript(commentHash, doi, review).then(function(result) {
+          $('.results-text').show();
+          $('.results-text').text('Successfully submitted comment.');
+          console.log('Success');
 	    }).catch(function(err) {
 		    console.log(err.message);
 	    });
-	    });
+    });
   }
 
 };

@@ -54,19 +54,19 @@ App = {
       console.log(typeof(account))
 	  manuscriptInstance.getManuscript().then(function(result) {
           $('.results-text').show();
-          $('.results-text').text(
-          'paperID: '+result[0]+'\n'+
-          'doi: '+result[1]+'\n'+
-          'revision #: '+result[2]+'\n'+
-          'reviews (needs work): '+result[3]+'\n'+
-          'reviews (A+++++++++): '+result[4]+'\n'
+          $('.results-text').html(
+          '<b>paperID:</b> '+result[0]+'<br>'+
+          '<b>doi:</b> '+result[1]+'<br>'+
+          '<b>revision #:</b> '+result[2]+'<br>'+
+          '<b>reviews (Needs work):</b> '+result[3]+'<br>'+
+          '<b>reviews (Acceptable):</b> '+result[4]+'<br>'
           );
           console.log(
           'paperID: '+result[0]+'\n'+
           'doi: '+result[1]+'\n'+
           'revision #: '+result[2]+'\n'+
           'reviews (needs work): '+result[3]+'\n'+
-          'reviews (A+++++++++): '+result[4]+'\n'
+          'reviews (Acceptable): '+result[4]+'\n'
           );
 	    }).catch(function(err) {
 		    console.log(err.message);
