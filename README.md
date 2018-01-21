@@ -27,16 +27,22 @@ Users utilize, maintain, and grow the network of scholarship by simply running a
 
 ## What it does
 
+This contract deals with all the 
+aspects of a peer-reviewed journal. An address on the Etherum 
+network can with a new contract submit paper, review and  comment on other papers, revise their own submitted papers, 
+
+
 ## How we built it
 There are 2 main back-end components, the ipfs file hosting service 
-and the ethereum blockchain contracts. They are bridged togeher 
+and the ethereum blockchain contracts. They are bridged together 
 with ([MetaMask](https://metamask.io/)), a tool for connecting 
 the distributed blockchain world, and by extension the distributed 
 papers, to a web browser. 
  
-We wrote a smart contract that deals with all the apects of a peer-reviewed 
-journal. An address on the Etherum network can submit paper, review and 
-comment on other papers, revise their own submitted papers, 
+We wrote a smart contract in the Solidity language used as a high level 
+language for writing smart contracts. The ipfs intereface was build using 
+DAVID FILL ME IN, INCLUDING DETAILS ABOUT THE WEBPAGE BEING HOSTED ON IPFS
+. Then we connected everything using MetaMask and Javascript (BIJAN FILL IN THIS PART)
 
 ## Challenges we ran into
 
