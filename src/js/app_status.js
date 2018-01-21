@@ -56,16 +56,16 @@ App = {
 	  manuscriptInstance.getManuscript().then(function(result) {
           $('.results-text').show();
           $('.results-text').html(
-          '<b>paperID:</b> '+result[0]+'<br>'+
-          '<b>doi:</b> '+result[1]+'<br>'+
-          '<b>revision #:</b> '+result[2]+'<br>'+
-          '<b>reviews (Needs work):</b> '+result[3]+'<br>'+
-          '<b>reviews (Acceptable):</b> '+result[4]+'<br>'+
+          '<b>Paper Hash:</b> '+result[0]+'<br>'+
+          '<b>DOI:</b> '+result[1]+'<br>'+
+          '<b>Revision #:</b> '+result[2]+'<br>'+
+          '<b>Reviews (Needs work):</b> '+result[3]+'<br>'+
+          '<b>Reviews (Acceptable):</b> '+result[4]+'<br>'+
           '<b>IPFS link:</b> <a href="http://localhost:8080/ipfs/'+result[0]+'">http://localhost:8081/ipfs/'+result[0]+'</a><br>'
           );
           console.log(
           'paperID: '+result[0]+'\n'+
-          'doi: '+result[1]+'\n'+
+          'DOI: '+result[1]+'\n'+
           'revision #: '+result[2]+'\n'+
           'reviews (needs work): '+result[3]+'\n'+
           'reviews (Acceptable): '+result[4]+'\n'
