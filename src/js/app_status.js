@@ -37,27 +37,13 @@ App = {
   },
 
   bindEvents: function() {
-    $(document).on('click', '.btn-submit', App.handleSubmit);
+    $(document).on('click', '.btn-check', App.handleSubmit);
   },
   handleSubmit: function(event) {
     event.preventDefault();
 
-    var corpusID = $('.amend_hash').val();
-    console.log('amendID: '+corpusID);
-    var doi = $('.amend_doi').val();
-    console.log('amend_doi: '+doi);
-    var txHash = $('.amend_contract').val();
-    console.log('txHash :'+txHash);
-    web3.eth.getTransactionReceipt(txHash, function(error, result) {
-    if(error) {
-        console.error(error);
-    }
-    else {
-      var contractAddr = result['contractAddress'];
-      console.log(contractAddr);
-      console.log(typeof(contractAddr));
-
-      var manuscriptInstance = App.contracts.Manuscript.at(contractAddr);
+    var contractAddr = $('.status_hash').val();
+    var manuscriptInstance = App.contracts.Manuscript.at(contractAddr);
 
 	web3.eth.getAccounts(function(error, accounts) {
 	  if (error) {
@@ -66,12 +52,25 @@ App = {
 
 	  var account = accounts[0];
       console.log(typeof(account))
-	  manuscriptInstance.ammendManuscript(corpusID, doi).then(function(result) {
+	  manuscriptInstance.getManuscript().then(function(result) {
+          $('.results-text').show();
+          $('.results-text').text(
+          'paperID: '+result[0]+'\n'+
+          'doi: '+result[1]+'\n'+
+          'revision #: '+result[2]+'\n'+
+          'reviews (needs work): '+result[3]+'\n'+
+          'reviews (A+++++++++): '+result[4]+'\n'
+          );
+          console.log(
+          'paperID: '+result[0]+'\n'+
+          'doi: '+result[1]+'\n'+
+          'revision #: '+result[2]+'\n'+
+          'reviews (needs work): '+result[3]+'\n'+
+          'reviews (A+++++++++): '+result[4]+'\n'
+          );
 	    }).catch(function(err) {
 		    console.log(err.message);
 	    });
-	    });
-    };
     });
   }
 

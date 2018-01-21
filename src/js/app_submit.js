@@ -37,15 +37,16 @@ App = {
   },
 
   bindEvents: function() {
+    $(document).on('click', '.btn-create', App.handleCreate);
     $(document).on('click', '.btn-submit', App.handleSubmit);
   },
-  handleSubmit: function(event) {
+
+  handleCreate: function(event) {
     event.preventDefault();
 
     var corpusID = $('#hash-form').find('.submit_hash').val();
-    console.log('corpusID: '+corpusID);
     var doi = $('#doi-form').find('.submit_doi').val();
-    console.log('doi: '+doi);
+
 	var manuscriptInstance;
 
 	web3.eth.getAccounts(function(error, accounts) {
@@ -54,25 +55,60 @@ App = {
 	  }
 
 	  var account = accounts[0];
-      console.log('right before manuscript.')
+      console.log('right before manuscript.');
+      console.log('account is: '+account);
+
 	  App.contracts.Manuscript.new().then(function(instance) {
-        console.log('I am before instance is named manuscriptInstance')
         manuscriptInstance = instance;
-		// Execute initialManuscript as a transaction by sending account
-        console.log('instance address: '+manuscriptInstance.address)
-		return manuscriptInstance.initialManuscript(corpusID, doi, {from: account});
-	  }).then(function(result) {
+	  }).catch(function(err) {
+        $('.failure-text').show();
+		console.log(err.message);
+	  });
         $('.success-text').show();
-        $('.success-text').text('Success!\n\n Transaction reciept: '+result['tx']);
-        console.log(result)
+        $('.success-text').text('Success! Put your TX has in the field labeled TX hash.');
+		console.log('Successful contract creation.');
+        $('.btn-create').hide();
+        $('.btn-submit').show();
+	});
+  },
+
+  handleSubmit: function(event) {
+    event.preventDefault();
+
+    var corpusID = $('#hash-form').find('.submit_hash').val();
+    var doi = $('#doi-form').find('.submit_doi').val();
+    var tx = $('#tx-form').find('.submit_tx').val();
+    console.log('trasaction is '+tx);
+    //var contractAddr;
+    web3.eth.getTransactionReceipt(tx, function(error, result) {
+    if(error) {
+        console.error(error);
+    }
+    else {
+    var contractAddr = result['contractAddress']; 
+    console.log(contractAddr);
+    console.log(typeof(contractAddr));
+
+	var manuscriptInstance = App.contracts.Manuscript.at(contractAddr);
+
+	web3.eth.getAccounts(function(error, accounts) {
+	  if (error) {
+		console.log(error);
+	  }
+
+	  var account = accounts[0];
+
+		manuscriptInstance.initialManuscript(corpusID, doi).then(function(result) {
+        $('.success-text').text('Success! Here is your contract ID: '+contractAddr);
 		console.log('Successful submission');
 	  }).catch(function(err) {
         $('.failure-text').show();
 		console.log(err.message);
 	  });
-	});
+    });
+    };
+    });
   }
-
 };
 
 $(function() {

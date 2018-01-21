@@ -47,39 +47,24 @@
 
     <div class="jumbotron">
       <div class="container">
-          <h1><center>arXain submission form</center></h1>
+          <h1><center>arXain Check Status</center></h1>
       </div>
     </div>
-
-      <div class="container">
-      <div id="articleRow" class="row">
-        <!-- ARTICLES LOAD HERE -->
-      </div>
-    </div>
-    <div class="container">
 
       <div id="articleRow" class="row">
       <div class="col-sm-12 col-md-12 col-lg-12">
         <div class="panel panel-default panel-article">
           <div class="panel-heading">
-              <h3 class="panel-title"><center>submit here</center></h3>
+              <h3 class="panel-title"><center>check status here</center></h3>
           </div>
           <div class="panel-body">
             <center>
-            <div class="form-group" id="hash-form">
-              <strong>Paper Hash</strong>: <input type="text" placeholder="Paper Hash" class="submit_hash">
+            <div class="form-group">
+              <strong>Contract Hash</strong>: <input type="text" placeholder="0x1" class="status_hash">
             </div>
-            <div class="form-group" id="doi-form">
-              <strong>DOI</strong>: <input type="text" placeholder="DOI" class="submit_doi">
-            </div>
-            <div class="form-group" id="tx-form">
-              <strong>TX hash</strong>: <input type="text" placeholder="Leave empty for now" class="submit_tx">
-            </div>
-            <button type="submit" class="btn btn-default btn-create">Create Contract</button>
-            <button type="submit"  class="btn btn-default btn-submit">Submit Paper</button>
-            <br/>
-            <span style="display: none;" class="success-text">Success!</span><br>
-            <span style="display: none;" class="failure-text">Failed to submit paper!</span><br>
+            <button type="submit" class="btn btn-default btn-check">Check Status</button>
+            <br/><br>
+            <span style="display: none;" class="results-text">Stuff!</span>
             </center>
           </div>
         </div>
@@ -94,6 +79,6 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/web3.min.js"></script>
     <script src="js/truffle-contract.js"></script>
-    <script src="js/app_submit.js"></script>
+    <script src="js/app_status.js"></script>
   </body>
 </html>
