@@ -14,7 +14,7 @@ App = {
         $.get("http://localhost:5001/api/v0/pin/add?arg=/ipns/"+data[i].submitter+"/"+data[i].doi"/&recursive=true");
         
         articleTemplate.find('.article-title').text(data[i].title);        
-        articleTemplate.find('.article-title').attr('href', "http://localhost:8080/ipns/"+data[i].submitter+"/"+data[i].doi+"/"+data[i].doi+".pdf")
+        articleTemplate.find('.article-title').attr('href', "http://localhost:8080/ipns/"+data[i].submitter+"/"+data[i].doi+"/"+data[i].doi+".pdf");
         articleTemplate.find('.article-authors').text(data[i].authors);
         articleTemplate.find('.article-submitter').text(data[i].submitter);
         articleTemplate.find('.article-tags').text(data[i].tags);
