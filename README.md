@@ -26,7 +26,7 @@ platform based on the arXiv, but in a completely decentralized manner.
 Users utilize, maintain, and grow the network of scholarship by simply 
 running a simple program and web interface.
 
-<img src="//github.com/david-hopper/arXain/blob/master/src/images/logo_small.png?raw=true" alt="arXain" />
+<img src="https://github.com/david-hopper/arXain/blob/master/src/images/logo_name.png" alt="arXain" />
 
 ## What it does
 
