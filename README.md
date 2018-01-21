@@ -1,4 +1,6 @@
-<center><img src="https://github.com/david-hopper/arXain/blob/master/src/images/logo_name.png" alt="arXain" /></center>
+<p align="center">
+  <img src="https://github.com/david-hopper/arXain/blob/master/src/images/logo_name.png" alt="arXain" /></center>
+</p>
 
 ## Inspiration
 
@@ -34,7 +36,7 @@ running a simple program and web interface.
 arXian deals with all the aspects of a peer-reviewed journal service.
 An author (wallet address) will come with a bomb-ass paper they wrote. 
 In order to "upload" their paper to the blockchain, they will first 
-need to add their file/directory to the ipfs distributed file system. This will 
+need to add their file/directory to the IPFS distributed file system. This will 
 produce a unique reference number (DOI is currently used in journals) 
 and hash corresponding to the current paper file/directory. 
 
@@ -45,7 +47,7 @@ author can make to that paper is submitting another draft.
 
 Others can review and comment on papers, but an address can not comment/review
 its own paper. The reviews are rated on a "work needed", "acceptable" basis 
-and the reviewer can also upload an ipfs hash of their comments file/directory. 
+and the reviewer can also upload an IPFS hash of their comments file/directory. 
 Protection is also built in such that others can not submit revisions of the 
 original author's paper. 
 
@@ -56,14 +58,14 @@ the document. One can see the initial draft, all suggestions from reviewers,
 how many reviewers, and how many of them think the final draft is reasonable. 
 
 ## How we built it
-There are 2 main back-end components, the ipfs file hosting service 
+There are 2 main back-end components, the IPFS file hosting service 
 and the ethereum blockchain contracts. They are bridged together 
 with ([MetaMask](https://metamask.io/)), a tool for connecting 
 the distributed blockchain world, and by extension the distributed 
 papers, to a web browser. 
  
 We wrote a smart contract in the Solidity language used as a high level 
-language for writing smart contracts. The ipfs intereface was build using 
+language for writing smart contracts. The IPFS intereface was build using 
 DAVID FILL ME IN, INCLUDING DETAILS ABOUT THE WEBPAGE BEING HOSTED ON IPFS
 . Then we connected everything using MetaMask and Javascript (BIJAN FILL IN THIS PART)
 
@@ -73,13 +75,24 @@ On the Ethereum side, setting up the truffle Ethereum framework and test
 networks were challenging. Learning the limits of Solidity and the power 
 at the same time was also a bit of a struggle.
 
-On the ipfs side, DAVID, BIJAN
+On the IPFS side, DAVID, BIJAN
 
-Though the hardest part was connected the MetaMask side to the blockchain 
-and using Javascript to call our contracts, interacting with browser 
+Though the hardest part was using MetaMask and Javascript to call our contracts 
+and connect the blockchain to the browser. We struggled for about six hours 
+trying to get javascript to deploy a contract on the blockchain, feeling hopeless
+for many of them. 
 
 ## Accomplishments that we're proud of
 
+Closing all the curly bois and close parentheticals in javascript. 
+Learning a whole lot about the blockchain and IPFS. We went into this 
+weekend just wanting to learning about how the blockchain worked, and 
+learning about Solidity, IPFS, Javascript, and a whole lot more. 
+
 ## What we learned
+
+We learned intimate knowledge of setting up Ethereum truffle frameworks, 
+ganache, and test networks along with the development side of Ethereum
+dApps like the Solidity language, and javascript tests with the Mocha framework. 
 
 ## What's next for arXain
