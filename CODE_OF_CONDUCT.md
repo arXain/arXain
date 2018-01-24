@@ -4,7 +4,7 @@
 
 A primary goal of arXain is to be inclusive to the largest number of contributors, with the most varied and diverse backgrounds possible. As such, we are committed to providing a friendly, safe and welcoming environment for all, regardless of gender, sexual orientation, ability, ethnicity, socioeconomic status, and religion (or lack thereof).
 
-This code of conduct outlines our expectations for all those who participate in our community, as well as the consequences for unacceptable behavior.
+This code of conduct outlines our expectations for all those who participate in our community, as well as the consequences for unacceptable behavior. We want to make absolutely clear that this project is trusted with the intellectual property of scientists. Keep this in mind when you are working, and note that the arXain developer community takes this stewardship seriously.
 
 We invite all those who participate in arXain to help us create safe and positive experiences for everyone.
 
