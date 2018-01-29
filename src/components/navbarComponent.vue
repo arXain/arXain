@@ -8,7 +8,7 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		  </button>
-		  <a class="navbar-brand" href="#">ar&chi;ain</a>
+		  <a class="navbar-brand" href="/index.html">ar&chi;ain</a>
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
 		  <form class="navbar-form navbar-right">

@@ -8,8 +8,8 @@
     <title>ar&chi;ain motivation</title>
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/column_helper.css" rel="stylesheet">
+    <link href="src/css/bootstrap.min.css" rel="stylesheet">
+    <link href="src/css/column_helper.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -19,16 +19,15 @@
     <![endif]-->
   </head>
   <body>
-    <div id="nav-placeholder">
-    <!-- js/common_elements.js injects the navbar here -->
-    </div>
 
-    <div class="jumbotron">
-      <div class="container">
-          <h1><center>about us</center></h1>
-      </div>
+    <div id="app">
+        <div class="container">
+            <navbar-component/>
+        </div>
+        <div class="container">
+            <pagehead-component title="About Us"/>
+        </div>
     </div>
-
     <div class="container">
         <h2><center>Open Sourcerors</center></h2>
 
@@ -119,10 +118,10 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/web3.min.js"></script>
-    <script src="js/truffle-contract.js"></script>
-    <script src="js/common_elements.js"></script>
-    <script src="js/app_status.js"></script>
+    <script src="src/js/bootstrap.min.js"></script>
+    <script src="src/js/web3.min.js"></script>
+    <script src="src/js/truffle-contract.js"></script>
+    <script src="src/js/app_status.js"></script>
+    <script src="dist/build.js"></script>
   </body>
 </html>
