@@ -7,7 +7,8 @@
 <script>
     module.exports= {
         name:"PageHeadingComponent",
-        props: ['title'],
+        //props: ['title'],
+        props: {title: String},
         data (){
             return {}
         }
@@ -17,4 +18,4 @@
 
 
 <style scoped>
-</style>
+</style
