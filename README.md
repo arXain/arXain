@@ -2,6 +2,32 @@
   <img src="https://github.com/david-hopper/arXain/blob/master/src/images/logo_name.png" alt="arXain" /></center>
 </p>
 
+## How to setup
+
+- `$ npm install`
+    - Installs all the packages you need to run, including webpack. See a list of what will be installed in `package.json`.
+- `$ npm run build`
+    - Builds the webpack bundle of all the javascript in the page. Configuration for how it goes about building the bundle set in `webpack.config.js`
+- `$ npm run dev`
+    - Launches the dev server.
+
+## How to modify
+
+- Each html file is made up of 3 UI componenets, the navbar, the header, and the contract interface. Components describe the template of what what's shown to the user. Components are located in `src/components`.
+    -  The Navbar is its own component and is included on every html page. 
+    - The Header is its own component and is included on every html page.   
+    - submitContract.vue, statusContract.vue, amendContract.vue, and commentsContract.vue are components that interface between the specific contract code, and the user.
+
+- Each Contract component has a jQuery `app_*.js` file that it loads and which does all the heavy lifting. The app's are located in `src/js/`. 
+
+- Essentially, the UI go in the `*Contract.vue` components, and javascript code goes into the `app_*.js` files. 
+
+Here is a picture of the simple outline so far:
+
+![flow look](simple_flow.jpg)
+
+
+
 ## Inspiration
 
 Peer-review is critical to modern science, engineering, and healthcare
