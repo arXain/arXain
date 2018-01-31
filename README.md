@@ -4,7 +4,7 @@
 
 ## Inspiration
 
-Peer-review science is critical to modern science, engineering, and healthcare
+Peer-review is critical to modern science, engineering, and healthcare
 endeavors. However, the system for implementing this process has lagged behind
 and results in expensive costs for publishing and accessing material, long turn
 around times reminiscent of snail-mail, and shockingly opaque editorial
@@ -88,7 +88,7 @@ new to functional programming.
 Closing all the curly bois and close parentheticals in javascript.
 Learning a whole lot about the blockchain and IPFS. We went into this
 weekend wanting to learning about how the blockchain worked, and came out
-learning about Solidity, IPFS, Javascript, and a whole lot more. You can 
+learning about Solidity, IPFS, Javascript, and a whole lot more. You can
 see our "genesis-paper"on an IPFS gateway (a bridge between HTTP and IPFS) here
 
 ## What we learned
@@ -108,4 +108,4 @@ and how the file distribution works on a P2P swarm.
 With some more extensive testing, arXain is ready for the Ropsten test network
 _at the least_. If we had a little more ETH to spare, we would consider launching
 our Dapp on the Main Network. arXain PDFs are already on the IPFS swarm and can
-be accessed by any IPFS node. 
+be accessed by any IPFS node.
