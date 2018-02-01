@@ -21,7 +21,7 @@ App = {
   },
 
   initContract: function() {
-	$.getJSON('Manuscript.json', function(data) {
+	$.getJSON('build/contracts/Manuscript.json', function(data) {
 	  // Get the necessary contract artifact file and instantiate it with truffle-contract
 	  var ManuscriptArtifact = data;
 	  App.contracts.Manuscript = TruffleContract(ManuscriptArtifact);
