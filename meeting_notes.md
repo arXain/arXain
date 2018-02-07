@@ -1,8 +1,8 @@
 ------
 **2/6/2018**
 
-Target two weeks for version 0, make the project public, and update 1517. Primary goal for v0 is to be able to submit multiple manuscripts on a 
-locally running testnet.
+Target two weeks for version 0, update 1517 and ask about licensing for this project and any other outstanding issues. 
+Primary goal for v0 is to be able to submit multiple manuscripts on a locally running testnet.
 
 v0 checklist:
 * Website UI - Bijan/Saul
