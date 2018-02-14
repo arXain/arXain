@@ -1,7 +1,5 @@
-var Manuscript = artifacts.require("./Manuscript.sol");
-var Mortal = artifacts.require("./Mortal.sol");
+var Paper = artifacts.require("./Paper.sol");
 
 module.exports = function(deployer) {
-  deployer.deploy(Manuscript);
-  deployer.deploy(Mortal);
+  deployer.deploy(Paper);
 };

@@ -1,15 +1,14 @@
 <!-- App.vue (parent app) -->
 <template>
-	<div id="app">
-		<navbar-component></navbar-component>
+	<div class="container">
+		<web3-box/>
 	</div>
 </template>
 
 <script>
-import NavbarComponent from '../components/NavbarComponent.vue'
+import Web3Box from '../components/Web3Box.vue'
 export default {
-			name: 'app',
-			components: {NavbarComponent}, //Register other components
+			components: {Web3Box}, //Register other components
 		}
 </script>
 

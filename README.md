@@ -2,27 +2,33 @@
   <img src="https://github.com/david-hopper/arXain/blob/master/src/images/logo_name.png" alt="arXain" /></center>
 </p>
 
-## How to setup
+## How to setup for development
 
 - `$ npm install`
     - Installs all the packages you need to run, including webpack. See a list of what will be installed in `package.json`.
 - `$ npm run build`
-    - Builds the webpack bundle of all the javascript. Configuration for building in `webpack.config.js`
+    - Builds the webpack bundle of all the javascript. Configuration for building in `webpack.config.js`. All you need to do is include `dist/build.js` in any html file.
+- Establish the default connection to a blockchain by editing `truffle.js` to point to where your testRPC is running.
+- `$ npm install -g truffle`
+    - You may need to use sudo to install it. 
+- `$ npm install -g ganache-cli` and then simply `$ ganache-cli` to run it.
+    - This is to run a blockchain locally for testing.
+    - The default port it runs on is 8545.
+- `$ truffle compile && truffle migrate`
+    - This will compile the contracts written in solidity into a form such that they interact with javascript. `truffle migrate` then migrates your contract to the blockchain.
 - `$ npm run dev`
-    - Launches the dev server.
+    - Launches the dev server on port 4000.
 
 ## How to modify
 
-- Each html file is made up of 3 UI componenets, the navbar, the header, and the contract interface. Components describe the template of what's shown to the user. Components are located in `src/components`.
-    -  The Navbar is its own component and is included on every html page. 
-    - The Header is its own component and is included on every html page.   
+- `main.html` is where all the magic happens. It load Web3Box, which is the central controller for find, loading, and manipulating ethereum contracts. 
+- Web3box finds the MetaMask instance (or any other web3 instance the user is running) and hands it to the contracts to use. It also holds the navbar, the page header, and loads contracts from TruffleContract.
+    - LoadContracts vue takes the JSON of your contracts from `build/contracts` and puts them into an easy to use TruffleContract. It also passes the web3 instance from Web3Box to each of the specific contract components.
     - submitContract.vue, statusContract.vue, amendContract.vue, and commentsContract.vue are components that interface between the specific contract code and the user.
 
-- Each Contract component has a jQuery `app_*.js` file that it loads and which does all the heavy lifting. The app files are located in `src/js/`. 
+- Each Contract component has a `<script>` tag that loads the javascript which does all the heavy lifting. It also has a `<template>` tag that describes how the page looks like in html. All the components are located in `src/components`. 
 
-- Essentially, the UI go in the `*Contract.vue` components, and javascript code goes into the `app_*.js` files. 
-
-Here is a picture of the simple outline so far:
+Here is a picture of the site outline so far:
 
 ![flow look](simple_flow.jpg)
 

@@ -9,23 +9,14 @@
 			<span class="icon-bar"></span>
 		  </button>
 		  <a class="navbar-brand" href="/index.html">ar&chi;ain</a>
+		  <a class="navbar-brand" href="/about.html">About Us</a>
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
 		  <form class="navbar-form navbar-right">
 			<div class="form-group">
-			  <a class="form-control" href="/submit.html">Submit a paper</a>
-			</div>
-			<div class="form-group">
-			  <a class="form-control" href="/ammend.html">Revise a paper</a>
-			</div>
-			<div class="form-group">
-			  <a class="form-control" href="/status.html">Check blockchain</a>
-			</div>
-			<div class="form-group">
-			  <a class="form-control" href="/comments.html">Comment on a paper</a>
-			</div>
-			<div class="form-group">
-			  <a class="form-control" href="/about.html">About Us</a>
+			  <a class="form-control" 
+                  href="/main.html">Get Started!
+              </a>
 			</div>
 		  </form>
 		</div><!--/.navbar-collapse -->
@@ -36,7 +27,7 @@
     module.exports = {
         data(){
             return {}
-        }
+        },
     }
 </script>
 
