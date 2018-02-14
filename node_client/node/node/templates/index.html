@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>pyXain node testing</h1>
+
+<p>Enter a local directory and an author address below.</p>
+<br>
+
+<form action="{{ url_for('init_author') }}" method="post">
+  Address:<br>
+  <input type="text" name="author_id" value="0x12345">
+  <br><br>
+  <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>

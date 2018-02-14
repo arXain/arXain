@@ -1,0 +1,8 @@
+MANIFEST.in
+node/__init__.py
+node/node.py
+node.egg-info/PKG-INFO
+node.egg-info/SOURCES.txt
+node.egg-info/dependency_links.txt
+node.egg-info/requires.txt
+node.egg-info/top_level.txt

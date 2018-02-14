@@ -42,8 +42,6 @@ Always write a clear log message for your commits. One-line messages are fine fo
     >
     > A paragraph describing what changed and its impact."
 
-
-
 ## Coding conventions
 
 I copied this from an open source repository, we may want to decide on this later but I left this here as an example.

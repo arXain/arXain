@@ -1,0 +1,5 @@
+{
+  "arxain_dir" : "~arXain-data",
+  "ipfs_address" : "127.0.0.1",
+  "ipfs_api_port" : 5001
+}
