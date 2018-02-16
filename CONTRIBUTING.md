@@ -2,26 +2,26 @@
 
 We're really glad that you are reading this and are considering helping us create an open science platform.
 
-Please direct any inquires to -How are we going to communicate with the comunnity, slack? gitter?-
+Please direct any inquires to arxain@protonmail.com
 
-Our inspiration comes from the [arXiv](arxiv.org). This is a pre-print server for Astronomy, Physics, Mathematics, and Engineering maintained by Cornell University. A quick look at the functionality and architecture provides a great introduction to what we are trying to build, but in a decentralized manner.
+Our inspiration comes from the [arXiv](http://arxiv.org). This is a pre-print server for Astronomy, Physics, Mathematics, and Engineering maintained by Cornell University. A quick look at the [functionality and architecture](https://arxiv.org/help/general) provides a great introduction to what we are trying to build, but in a decentralized manner.
 
 
-Here are some important resources for how arXain runs:
+Here are some important resources for what arXain runs on:
 
   * [InterPlanetaryFileSystem](https://ipfs.io) our file sharing protocol
   * [Ethereum](https://www.ethereum.org/) our block chain for public tracking
-  * Javascript or web framework?
-  * Middleware client?
-  * [Overview of arXiv capabilities](https://arxiv.org/help/general)
+  * [Vue.js](https://vuejs.org/) our chosen web framework for the browser UI
+  * [MetaMask](https://metamask.io/) the bridge between the browser and Ethereum
+  * [Python3](https://www.python.org/) our middleware for managing manuscripts and comments published on IPFS.
 
 ## Testing
 
-Please submit tests for any new code submitted. -We need to flush out testing framework-
+Please submit tests for any new features added. No tests means no merge. We use TravisCI to run a set of tests designed to maintain the core functionality of arXain.
 
 ## Proposing major changes
 
-Currently, we submit major changes as issues that a developer can work on. Please submit any proposed change, along with a SMART summary at [GitHub New Issue](https://github.com/david-hopper/arXain/issues/new). If you have resolved an issue, or implemented a major change
+Currently, we submit major changes as issues that a developer can work on. Please submit any proposed change, along with a SMART summary at [GitHub New Issue](https://github.com/david-hopper/arXain/issues/new).
 
 Overview of SMART
 * __Specific__ - The task isn’t just “build an upload page” but something like “write a page that has a button to create an empty contract on the block chain, then a field to drag and drop a pdf into, which will upload the pdf to IPFS, and then once the file is uploaded, automatically initialize the contract with the IPFS hash”.
@@ -32,9 +32,13 @@ Overview of SMART
 
 ## Submitting changes
 
-Please send a [GitHub Pull Request to arXain](https://github.com/david-hopper/arXain/pull/new/master) with a clear list of what you've done (read more about [pull requests](http://help.github.com/pull-requests/)). Please follow our coding conventions (below) and make sure all of your commits are atomic (one feature per commit).
+ If you have resolved an issue, implemented a feature addition, or updated any documentation, please submit your branch for an [arXain Pull Request](http://github.com/david-hopper/arXain/pull/new/master) with a clear list of what you've done (read more about [pull requests](http://help.github.com/pull-requests/)). Please follow our coding conventions (below) and make sure all of your commits are atomic (one feature per commit).
+
+Code organization:
 
 - UI edits goes in Vue components in `src/components`, while UX edits go in `app_*.js` files in `src/js`.
+
+- all pyXain functionality should be contained in `node_client/pyXain/pyXain/pyXain.py` and subsequently incorporated into the flask node `node_client/node/node/node.py`
 
 Always write a clear log message for your commits. One-line messages are fine for small changes, but bigger changes should look like this:
 
@@ -44,17 +48,11 @@ Always write a clear log message for your commits. One-line messages are fine fo
 
 ## Coding conventions
 
-I copied this from an open source repository, we may want to decide on this later but I left this here as an example.
-
 Start reading our code and you'll get the hang of it. We optimize for readability:
 
-  * We indent using two spaces (soft tabs)
-  * We use HAML for all views
-  * We avoid logic in views, putting HTML generators into helpers
-  * We ALWAYS put spaces after list items and method parameters (`[1, 2, 3]`, not `[1,2,3]`), around operators (`x += 1`, not `x+=1`), and around hash arrows.
   * This is open source software. Consider the people who will read your code, and make it look nice for them. It's sort of like driving a car: Perhaps you love doing donuts when you're alone, but with passengers the goal is to make the ride as smooth as possible.
-  * So that we can consistently serve images from the CDN, always use image_path or image_tag when referring to images. Never prepend "/images/" when using image_path or image_tag.
-  * Also for the CDN, always use cwd-relative paths rather than root-relative paths in image URLs in any CSS. So instead of url('/images/blah.gif'), use url('../images/blah.gif').
+  * Document and comment all functions and chunks of code to improve readability, and ease the review of the merge request.
 
 Thanks,
-The Curly Boiz behind arXain
+
+The arXain dev team
