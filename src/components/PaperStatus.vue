@@ -26,7 +26,7 @@ export default {
             message: ''
         }
     },
-    props: ['localWeb3','contract','contractArtifacts'],
+    props: ['localWeb3','contracts','contractArtifacts'],
     methods: {
 		handleCheck: function() {
             var contractAddr = this.statusAddr;
