@@ -1,11 +1,5 @@
 <template>
     <div>
-		<load-contracts
-            :localWeb3='localWeb3'
-            :load='contract'
-            @update:contractData="value => contractData = value"
-            @update:contractArtifacts="value => contractArtifacts = value">
-        </load-contracts>
     <div class="form-group">
       <strong>Contract Address</strong>: <input type="text" placeholder="0x1" v-model="statusAddr">
     </div>
@@ -23,23 +17,16 @@
 
 <script>
 import TruffleContract from 'truffle-contract'
-import LoadContracts from '../components/LoadContracts.vue'
 
 export default {
     data () {
         return {
             statusAddr: '',
             statusTx: '',
-            contract: 'Paper',
-            contractData: {},
-            contractArtifacts: {},
             message: ''
         }
     },
-    props: ['localWeb3'],
-	components: {
-		LoadContracts	
-	},
+    props: ['localWeb3','contract','contractArtifacts'],
     methods: {
 		handleCheck: function() {
             var contractAddr = this.statusAddr;
