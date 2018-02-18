@@ -13,19 +13,21 @@
     <div class="container">
         <div class="panel panel-default panel-article">
             <div class="panel-heading">
-                <h3 class="panel-title"><center> {{ subtitle }}</center></h3>
+                <h3 class="panel-title"><center> 
+                        IPFS status: <span> {{ ipfsMessage }} </span>
+                </center></h3>
             </div>
-            <div class="panel-body"><center>
+            <div class="panel-body">
                 <div v-if='web3find === undefined'>
                 <p>No web3 element (MetaMask/Mist) detected. Download MetaMask or another wallet client to use this page from the browser. </p>
                 </div>
                 <div v-else>
-                    <load-contracts
+                    <component :is='currentView'
                     :localWeb3='web3find'
-                    :load='currentView'
-                    ></load-contracts>
+                    @ipfs:message="value => ipfsMessage = value"
+                    ></component>
                 </div>
-            </center></div>
+            </div>
         </div>
     </div>
 </div>
@@ -35,15 +37,24 @@
 import NavbarComponent from '../components/NavbarComponent.vue'
 import PageHeadingComponent from '../components/PageHeadingComponent.vue'
 import LoadContracts from '../components/LoadContracts.vue'
+import PaperSubmit from '../components/PaperSubmit.vue'
+import PaperStatus from '../components/PaperStatus.vue'
+import PaperAmend from '../components/PaperAmend.vue'
+import PaperComments from '../components/PaperComments.vue'
+
+import { initIpfs } from '../js/ipfs-helper.js'
+
 export default {
     components: {
-        NavbarComponent, PageHeadingComponent, LoadContracts
+        NavbarComponent, PageHeadingComponent, PaperSubmit,
+        PaperAmend, PaperComments, PaperStatus
     },
     data: function () {
         return {
             currentView: 'paper-submit',
             header: 'ar&chi;ain Submission Form',
-            subtitle: 'Submit here'
+            subtitle: 'Submit here',
+            ipfsMessage: ''
         }
     },
     computed: {
@@ -60,6 +71,21 @@ export default {
              }
              return localWeb3;        
          }
+    },
+    mounted: function() {
+        this.ipfsMessage = "Loading...";
+        var el = this;
+        initIpfs().then(function (response) {
+            console.log(response);
+            if (response.data.Success) {
+                el.ipfsMessage = "✅  ";
+            } else {
+                el.ipfsMessage = "❌  - Could not GET init.";
+            }
+        }).catch(function (error) {
+            el.ipfsMessage = "❌  "+error;
+            console.log(error);
+        });
     }
 }
 </script>
