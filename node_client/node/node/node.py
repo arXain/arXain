@@ -1,23 +1,32 @@
 import os
 from flask import Flask, request, session, g, redirect, url_for, abort, \
     render_template, flash, jsonify
-
+from flask_cors import CORS, cross_origin
 from pyXain import pyXain
 from urllib.parse import unquote
 
 app = Flask(__name__) # create the application instance :)
 app.config.from_object(__name__) # load config from this file , flaskr.py
-
 # Load default config and override config from an environment variable
 app.config.update(dict(
     SECRET_KEY='development key',
     USERNAME='admin',
-    PASSWORD='default'
+    PASSWORD='default',
+    CORS_HEADER='Content-Type'
 ))
 app.config.from_envvar('NODE_SETTINGS', silent=True)
 
 # Initialize the pyXain manager
 pyx = pyXain.pyXain()
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
+
+#max filesize for uploads
+app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
+
+@app.route('/upload/file', methods=['GET','POST'])
+def upload_file():
+    results = pyx.upload_paper(request);
+    return jsonify(results)
 
 @app.route('/')
 def show_index():
@@ -70,3 +79,4 @@ def submit_comment():
 @app.route('/pin/manuscript', methods=["GET"])
 def pin_manuscript():
     pass
+

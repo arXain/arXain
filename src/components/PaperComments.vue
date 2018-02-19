@@ -1,6 +1,11 @@
-<!-- commentsContract -->
 <template>
 <div>
+    <load-contracts
+        :localWeb3='localWeb3'
+        :load='contract'
+        @update:contractData="value => contractData = value"
+        @update:contractArtifacts="value => contractArtifacts = value">
+    </load-contracts>
     <div class="form-group">
     <strong>Comment Hash</strong>: <input type="text" placeholder="(be constructive!)" v-model="commentHash">
     <br><br>
@@ -20,6 +25,7 @@
 </template>
 
 <script>
+import LoadContracts from '../components/LoadContracts.vue'
 
 export default {
     data () {
@@ -27,10 +33,16 @@ export default {
             commentHash: '',
             contractAddr: '',
             picked: 999,
+            contract: 'Paper',
+            contractData: {},
+            contractArtifacts: {},
             message: ''
         }
     },
-    props: ['localWeb3','contracts'],
+    props: ['localWeb3'],
+	components: {
+		LoadContracts	
+	},
     methods: {
 		handleComment: function() {
             var commentHash = this.commentHash;

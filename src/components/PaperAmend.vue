@@ -1,6 +1,12 @@
 <!-- amendContract -->
 <template>
     <div>
+		<load-contracts
+            :localWeb3='localWeb3'
+            :load='contract'
+            @update:contractData="value => contractData = value"
+            @update:contractArtifacts="value => contractArtifacts = value">
+        </load-contracts>
     <div class="form-group">
     <strong>Paper Hash</strong>: <input type="text" placeholder="Revised Paper Hash" v-model="amendHash">
     <br><br>
@@ -13,16 +19,23 @@
 </template>
 
 <script>
+import LoadContracts from '../components/LoadContracts.vue'
 
 export default {
     data () {
         return {
             amendHash: '',
             amendAddr: '',
+            contract: 'Paper',
+            contractData: {},
+            contractArtifacts: {},
             message: ''
         }
     },
-    props: ['localWeb3', 'contracts'],
+    props: ['localWeb3'],
+	components: {
+		LoadContracts	
+	},
     methods: {
 		handleAmend: function() {
             var paperHash = this.amendHash;
