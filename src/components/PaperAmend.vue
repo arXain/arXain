@@ -7,14 +7,20 @@
             @update:contractData="value => contractData = value"
             @update:contractArtifacts="value => contractArtifacts = value">
         </load-contracts>
-    <div class="form-group">
-    <strong>Paper Hash</strong>: <input type="text" placeholder="Revised Paper Hash" v-model="amendHash">
-    <br><br>
-    <strong>Contract Address</strong>: <input type="text" placeholder="0x1" v-model="amendAddr">
-    </div>
-    <button type="submit" class="btn btn-default btn-submit" v-on:click.prevent="handleAmend">Submit</button>
-    <br/><br>
-    <span> {{ message }}</span>
+        <form>
+        <div class="form-group">
+            <label>Paper Hash:</label> 
+            <input type="text" class="form-control" placeholder="Revised Paper Hash" v-model="amendHash">
+        </div>
+        <div class="form-group">
+            <label>Contract Address:</label> 
+            <input class="form-control" type="text" placeholder="0x1" v-model="amendAddr">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-submit" v-on:click.prevent="handleAmend">Submit</button>
+        </div>
+        <p><span> {{ message }}</span></p>
+        </form>
     </div>
 </template>
 

@@ -6,18 +6,23 @@
             @update:contractData="value => contractData = value"
             @update:contractArtifacts="value => contractArtifacts = value">
         </load-contracts>
+        <form>
+        <div class="form-group">
+          <label>Contract Address:</label> 
+          <input type="text" class='form-control' placeholder="0x1" v-model="statusAddr">
+        </div>
+        <button type="submit" class="btn btn-primary btn-check" @click.prevent="handleCheck">Check Contract</button>
+        </form>
+        <br>
+        <p> If you forgot the contract address, put in the transaction number from MetaMask that created the contract to retrieve the contract address below:</p>
+        <form>
     <div class="form-group">
-      <strong>Contract Address</strong>: <input type="text" placeholder="0x1" v-model="statusAddr">
+        <label>Transaction number:</label> 
+        <input type="text" class='form-control' placeholder="0x1" v-model="statusTx">
     </div>
-    <button type="submit" class="btn btn-default btn-check" @click.prevent="handleCheck">Check Contract</button>
-    <br/><br>
-    <p> If you forgot the contract address, put in the transaction number from MetaMask that created the contract to retrieve the contract address below:</p>
-    <div class="form-group">
-        <strong>Transaction number</strong>: <input type="text" placeholder="0x1" v-model="statusTx">
-    </div>
-    <button type="submit" class="btn btn-default btn-check" @click.prevent="handleTx">Find Contract</button>
-    <br/><br>
+    <button type="submit" class="btn btn-primary btn-check" @click.prevent="handleTx">Find Contract</button>
     <p><span v-html="message"> </span></p>
+        </form>
     </div>
 </template>
 

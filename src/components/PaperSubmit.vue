@@ -6,6 +6,7 @@
         @update:contractData="value => contractData = value"
         @update:contractArtifacts="value => contractArtifacts = value">
     </load-contracts>
+    <form>
         <h4> Step 1. Create an empty contract.</h4>
         <div class="form-group">
             <button type="submit" class="btn btn-primary btn-create" v-on:click.prevent="createContract">Create Contract</button>
@@ -43,6 +44,7 @@
             <button type="submit" class="btn btn-primary btn-submit" v-on:click.prevent="submitContract">Submit Paper</button>
         </div>
         <p><span v-html="messageInit"></span></p>
+    </form>
 </div>
 </template>
 
