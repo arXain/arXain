@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import jQuery from 'jquery'
-import BootstrapVue from 'bootstrap-vue'
-Vue.use(BootstrapVue);
+Vue.use(jQuery);
 
 import Web3Box from '../components/Web3Box.vue'
 import NavbarHome from '../components/NavbarHome.vue'

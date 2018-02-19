@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "bootstrap": "4.0.0",
-    "bootstrap-vue": "^2.0.0-rc.1",
     "jquery": "^3.3.1",
     "jquery.easing": "^1.4.1",
     "node-gyp": "^3.6.2",
