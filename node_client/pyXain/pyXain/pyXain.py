@@ -2,6 +2,7 @@ import os
 import ipfsapi
 import json
 from distutils.dir_util import copy_tree
+from werkzeug.utils import secure_filename
 #import PyPDF2 # for pdf file parsing in the future
 
 class pyXain(object):
@@ -138,6 +139,50 @@ class pyXain(object):
         results['peerID'] = peer_id
         results['authorID'] = author_id
         results['localDirectory'] = author_path
+
+        return results
+
+    def allowed_file(self, filename):
+        ALLOWED_EXTENSIONS = set(['txt','pdf'])
+        return '.' in filename and \
+               filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+    def upload_paper(self, request):
+        if request.method == 'POST':
+            print(request.files)
+            # check if the post request has the file part
+            if 'paper' not in request.files:
+                flash('No file part')
+                file_present = False
+            file = request.files['paper']
+            # if user does not select file, browser also
+            # submit a empty part without filename
+            if file.filename == '':
+                flash('No selected file')
+                file_present = False
+            if file and self.allowed_file(file.filename):
+                #make an upload dir if it doesn't exist
+                folder = self.arxain_path+'/upload'
+                if not os.path.exists(folder):
+                        os.makedirs(folder)
+                #delete files already in upload folder
+                for the_file in os.listdir(folder):
+                    file_path = os.path.join(folder, the_file)
+                    try:
+                        if os.path.isfile(file_path):
+                            os.unlink(file_path)
+                    except Exception as e:
+                        print(e)
+                #copy file to upload folder
+                filename = secure_filename(file.filename)
+                file.save(os.path.join(self.arxain_path, 'upload', filename))
+                file_path = self.arxain_path+'/upload'
+                print(file_path)
+                file_present = True
+        results = {}
+        results['Success'] = file_present
+        results['fileDirectory'] = file_path
+        results['fileName'] = filename
 
         return results
 
