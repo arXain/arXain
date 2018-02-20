@@ -5,8 +5,9 @@ Vue.use(VueClipboard);
 import Web3Box from '../components/Web3Box.vue'
 
 new Vue({
-      el: '#app',
-      template: '<Web3Box/>',
-      components: { Web3Box }
+    el: '#app',
+    components: { 
+        'web3-box': Web3Box 
+    },
 })
 

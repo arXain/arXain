@@ -1,10 +1,9 @@
 <template>
 <div>
     <navbar-component 
-     @update:header="value => header = value" 
      @update:view="value => currentView = value">
     </navbar-component>
-    <page-heading-component :title="header"/>
+    <page-heading-component :title="currentView"/>
     <main role="main" class="container">
     <div class="row">
         <div class="col-md-12">
@@ -44,10 +43,10 @@ export default {
         NavbarComponent, PageHeadingComponent, PaperSubmit,
         PaperAmend, PaperComments, PaperStatus
     },
+    props: ['initialView'],
     data: function () {
         return {
-            currentView: 'paper-submit',
-            header: 'ar&chi;ain Submission Form',
+            currentView: this.initialView,
             ipfsMessage: ''
         }
     },
@@ -74,10 +73,10 @@ export default {
             if (response.data.Success) {
                 el.ipfsMessage = "✅  ";
             } else {
-                el.ipfsMessage = "❌  - Could not GET init.";
+                el.ipfsMessage = "❌ Error: Could not GET init.";
             }
         }).catch(function (error) {
-            el.ipfsMessage = "❌  "+error;
+            el.ipfsMessage = "❌  "+error+". Is the IPFS node running?";
             console.log(error);
         });
     }

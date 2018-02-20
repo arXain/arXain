@@ -10,25 +10,25 @@
             <ul class="navbar-nav nav-fill">
 			<li class="nav-item">
                 <a class="nav-link" v-bind:class="{active: isSubmit}" 
-                  @click="changeView('paper-submit','ar&chi;ain Submission Form', 0)" 
+                  @click="changeView('paper-submit', 0)" 
                   href="#">Submit a paper
               </a>
 			</li>
 			<li class="nav-item">
                 <a class="nav-link" v-bind:class=" {active: isRevise} " 
-                  @click="changeView('paper-amend','ar&chi;ain Revision Form', 1);" 
+                  @click="changeView('paper-amend', 1);" 
                   href="#">Revise a paper
               </a>
 			</li>
 			<li class="nav-item">
                 <a class="nav-link" v-bind:class=" {active: isCheck} " 
-                 @click="changeView('paper-status','ar&chi;ain Check Blockchain', 2)" 
+                 @click="changeView('paper-status', 2)" 
                  href="#">Check blockchain
               </a>
 			</li>
 			<li class="nav-item">
                 <a class="nav-link" v-bind:class=" {active: isComment} " 
-                @click="changeView('paper-comments','ar&chi;ain Submit Comments', 3)"  
+                @click="changeView('paper-comments', 3)"  
                 href="#">Comment on a paper
               </a>
 			</li>
@@ -48,8 +48,7 @@
             }
         },
         methods: {
-            changeView: function(newView, newHeader, newIsActive) {
-                this.$emit('update:header',newHeader);
+            changeView: function(newView, newIsActive) {
                 this.$emit('update:view',newView);
                 this.currentActive = newIsActive;
             }
