@@ -3,7 +3,7 @@ from flask import Flask, request, session, g, redirect, url_for, abort, \
     render_template, flash, jsonify
 from flask_cors import CORS, cross_origin
 from pyXain import pyXain
-from urllib.parse import unquote
+from urlparse import urlparse
 
 app = Flask(__name__) # create the application instance :)
 app.config.from_object(__name__) # load config from this file , flaskr.py
