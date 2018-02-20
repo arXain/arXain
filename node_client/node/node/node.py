@@ -17,7 +17,7 @@ app.config.update(dict(
 app.config.from_envvar('NODE_SETTINGS', silent=True)
 
 # Initialize the pyXain manager
-pyx = pyXain.pyXain()
+pyx = pyXain()
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
 #max filesize for uploads
@@ -79,4 +79,3 @@ def submit_comment():
 @app.route('/pin/manuscript', methods=["GET"])
 def pin_manuscript():
     pass
-

@@ -426,20 +426,3 @@ class pyXain(object):
     def check_comment_files(self):
         """Verify that the files submitted for a comment are valid."""
         pass
-
-
-"""# Testing
-pyx = pyXain()
-
-print('init_arXain:')
-results = pyx.init_arXain()
-print(results)
-
-results = pyx.init_author("/Users/davidhopper/test", "0x100")
-print("init_author:")
-print(results)
-
-results = pyx.submit_manuscript("0x100", "1x001", "/Users/davidhopper/arXain/test_submissions/genesis-article")
-print("submit_manuscript:")
-print(results)
-"""
