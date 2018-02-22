@@ -1,35 +1,30 @@
 <template>
 <div>
-    <div class="container">
-        <navbar-component 
-         @update:header="value => header = value" 
-         @update:view="value => currentView = value" 
-         @update:sub="value => subtitle = value">
-        </navbar-component>
-    </div>
-    <div class="container">
-        <page-heading-component :title="header"/>
-    </div>
-    <div class="container">
-        <div class="panel panel-default panel-article">
-            <div class="panel-heading">
-                <h3 class="panel-title"><center> 
-                        IPFS status: <span> {{ ipfsMessage }} </span>
-                </center></h3>
+    <navbar-component 
+        :initialActive="currentView"
+        @update:view="value => currentView = value">
+    </navbar-component>
+    <page-heading-component :title="currentView"/>
+    <main role="main" class="container">
+    <div class="row">
+        <div class="col-md-12">
+        <div class="my-3 p-3 bg-white rounded box-shadow">
+            <center><h3>  IPFS status: <span> {{ ipfsMessage }} </span> </h3></center>
+        </div>
+        <div class="my-3 p-3 bg-white rounded box-shadow">
+            <div v-if='web3find === undefined'>
+            <p>No web3 element (MetaMask/Mist) detected. Download MetaMask or another wallet client to use this page from the browser. </p>
             </div>
-            <div class="panel-body">
-                <div v-if='web3find === undefined'>
-                <p>No web3 element (MetaMask/Mist) detected. Download MetaMask or another wallet client to use this page from the browser. </p>
-                </div>
-                <div v-else>
-                    <component :is='currentView'
-                    :localWeb3='web3find'
-                    @ipfs:message="value => ipfsMessage = value"
-                    ></component>
-                </div>
+            <div v-else>
+                <component :is='currentView'
+                :localWeb3='web3find'
+                @ipfs:message="value => ipfsMessage = value"
+                ></component>
             </div>
         </div>
+        </div>
     </div>
+    </main>
 </div>
 </template>
 
@@ -49,11 +44,10 @@ export default {
         NavbarComponent, PageHeadingComponent, PaperSubmit,
         PaperAmend, PaperComments, PaperStatus
     },
+    props: ['initialView'],
     data: function () {
         return {
-            currentView: 'paper-submit',
-            header: 'ar&chi;ain Submission Form',
-            subtitle: 'Submit here',
+            currentView: this.initialView,
             ipfsMessage: ''
         }
     },
@@ -80,10 +74,10 @@ export default {
             if (response.data.Success) {
                 el.ipfsMessage = "✅  ";
             } else {
-                el.ipfsMessage = "❌  - Could not GET init.";
+                el.ipfsMessage = "❌ Error: Could not GET init.";
             }
         }).catch(function (error) {
-            el.ipfsMessage = "❌  "+error;
+            el.ipfsMessage = "❌  "+error+". Is your IPFS node running?";
             console.log(error);
         });
     }

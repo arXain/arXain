@@ -6,46 +6,45 @@
         @update:contractData="value => contractData = value"
         @update:contractArtifacts="value => contractArtifacts = value">
     </load-contracts>
-    <div class=container>
-        <h3> Step 1. Create an empty contract.</h3>
-        <br>
-        <button type="submit" class="btn-lg btn-primary btn-create" v-on:click.prevent="createContract">Create Contract</button>
-        <br><br>
-        <span v-html="message"></span><br>
-
-    </div>
-    <div class=container>
-        <h3> Step 2. Enter details and upload to IPFS.</h3>
-
-        <div class="input-group mb-3">
-            <strong>Contract Address:</strong><br> <input type="text" class="form-control" pattern="[A-Za-z0-9]" :disabled="contractCreated == true" placeholder="0x0" v-model="contractAddr">
-            <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button" v-clipboard:copy="contractAddr">Copy</button>
+    <form>
+        <h4> Step 1. Create an empty contract.</h4>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-create" v-on:click.prevent="createContract">Create Contract</button>
+        </div>
+        <p><span v-html="message"></span></p>
+        <h4> Step 2. Enter details and upload to IPFS.</h4>
+        <div class="form-group">
+            <label for="contract">Contract Address:</label>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" pattern="[A-Za-z0-9]" :disabled="contractCreated == true" placeholder="0x0" v-model="contractAddr">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" v-clipboard:copy="contractAddr">Copy</button>
+                </div>
             </div>
-       </div>
-       <br>
+        </div>
 
        <ipfs-submit
             @ipfs:fileDir="value => submitIpfs(value)"
             @ipfs:resetPaper="value => paperCreated = false">
        </ipfs-submit>
 
-       <div class="input-group mb-3">
-           <strong>Paper Hash:</strong><br> <input type="text" pattern="[A-Za-z0-9]" :disabled="paperCreated == true" class="form-control" placeholder="Paper Hash" v-model="paperHash">
-            <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button" v-clipboard:copy="paperHash">Copy</button>
+        <div class="form-group">
+           <label for="contract">Paper Hash:</label>
+            <div class="input-group mb-3">
+                <input type="text" pattern="[A-Za-z0-9]" :disabled="paperCreated == true" class="form-control" placeholder="Paper Hash" v-model="paperHash">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" v-clipboard:copy="paperHash">Copy</button>
+                </div>
             </div>
         </div>
+        <p><span v-html="messageIpfs"></span></p>
         <br>
-        <span v-html="messageIpfs"></span><br>
-    </div>
-    <div class=container>
-        <h3> Step 3. Submit paper to the blockchain.</h3>
-        <button type="submit" class="btn btn-primary btn-submit" v-on:click.prevent="submitContract">Submit Paper</button>
-        <br><br>
-        <span v-html="messageInit"></span><br>
-
-    </div>
+        <h4> Step 3. Submit paper to the blockchain.</h4>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-submit" v-on:click.prevent="submitContract">Submit Paper</button>
+        </div>
+        <p><span v-html="messageInit"></span></p>
+    </form>
 </div>
 </template>
 
@@ -125,7 +124,7 @@ export default {
             });
         },
         createIpfs: function(account) {
-            this.$emit("ipfs:message", "Finding/Creating account "+account+"...");
+            this.$emit("ipfs:message", "Finding/Creating account...");
             var el = this;
             if (account == undefined) {
                 el.$emit("ipfs:message", "❌ - Account address is undefined.");
@@ -203,10 +202,5 @@ export default {
 
 
 <style scoped>
-input[type="text"] {
-    width: 400px;
-}
-div .input-group {
-    width: 500px;
-}
+
 </style>

@@ -1,29 +1,23 @@
 <template>
 <div>
-		<div class="form-group">
-            <strong> Upload PDF to IPFS </strong><br><br>
-			<form enctype="multipart/form-data" novalidate v-if="isInitial || isSaving">
-					<input type="file" :name="uploadFieldName" :disabled="isSaving" @change="filesChange($event.target.name, $event.target.files);" class="input-file">
-					<p v-if="isSaving">
-					Uploading PDF...
-					</p>
-			</form>
-            <!--SUCCESS-->
-            <div v-if="isSuccess">
-                <strong>Uploaded  {{ uploadedFiles[0] }} successfully.</strong><br><br>
-                <p>
-                <a href="javascript:void(0)" @click="reset()">Upload a Different paper</a>
-                </p>
-            </div>
-            <!--FAILED-->
-            <div v-if="isFailed">
-                <strong>Upload failed.</strong><br><br>
-                <p>
-                <a href="javascript:void(0)" @click="reset()">Try again</a>
-                </p>
-                <pre>{{ uploadError }}</pre>
-            </div>
-		</div>
+    <div class="form-group">
+        <label for="upload"> Upload PDF to IPFS: </label>
+        <form enctype="multipart/form-data" novalidate v-if="isInitial || isSaving">
+                <input type="file" :name="uploadFieldName" :disabled="isSaving" @change="filesChange($event.target.name, $event.target.files);" class="input-file">
+                <p v-if="isSaving"> Uploading PDF...</p>
+        </form>
+        <!--SUCCESS-->
+        <div v-if="isSuccess">
+            <p><strong>Uploaded  {{ uploadedFiles[0] }} successfully.</strong></p>
+            <p><a href="javascript:void(0)" @click="reset()">Upload a Different paper</a></p>
+        </div>
+        <!--FAILED-->
+        <div v-if="isFailed">
+            <p><strong>Upload failed.</strong></p>
+            <p><a href="javascript:void(0)" @click="reset()">Try again</a></p>
+            <pre>{{ uploadError }}</pre>
+        </div>
+    </div>
 </div>
 </template>
 

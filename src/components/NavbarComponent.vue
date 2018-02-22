@@ -1,58 +1,73 @@
 <!-- Navbar Component -->
 <template>
-	<nav class="navbar navbar-inverse">
-		<div class="navbar-header">
-		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-			<span class="sr-only">Toggle navigation</span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-		  </button>
-		  <a class="navbar-brand" href="/index.html">ar&chi;ain</a>
-		  <a class="navbar-brand" href="/about.html">About Us</a>
-		</div>
-		<div id="navbar" class="navbar-collapse collapse">
-		  <form class="navbar-form navbar-right">
-			<div class="form-group">
-			  <a class="form-control" 
-                  @click="changeView('paper-submit','ar&chi;ain Submission Form','Submit here')" 
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class ="container">
+        <a class="navbar-brand" href="/index.html">ar&chi;ain</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarResponsive">
+            <ul class="navbar-nav nav-fill">
+			<li class="nav-item">
+                <a class="nav-link" v-bind:class="{active: isSubmit}"
+                  @click="changeView('paper-submit')"
                   href="#">Submit a paper
               </a>
-			</div>
-			<div class="form-group">
-			  <a class="form-control" 
-                  @click="changeView('paper-amend','ar&chi;ain Revision Form','Revise here')" 
+			</li>
+			<li class="nav-item">
+                <a class="nav-link" v-bind:class=" {active: isRevise} "
+                  @click="changeView('paper-amend');"
                   href="#">Revise a paper
               </a>
-			</div>
-			<div class="form-group">
-			  <a class="form-control" 
-                 @click="changeView('paper-status','ar&chi;ain Check Blockchain','Check contract state on the blockchain')" 
+			</li>
+            <li class="nav-item">
+                <a class="nav-link" v-bind:class=" {active: isComment} "
+                @click="changeView('paper-comments')"
+                href="#">Review a paper
+              </a>
+			</li>
+			<li class="nav-item">
+                <a class="nav-link" v-bind:class=" {active: isCheck} "
+                 @click="changeView('paper-status')"
                  href="#">Check blockchain
               </a>
-			</div>
-			<div class="form-group">
-			  <a class="form-control" 
-                @click="changeView('paper-comments','ar&chi;ain Submit Comments','Submit comments here')"  
-                href="#">Comment on a paper
-              </a>
-			</div>
-		  </form>
+			</li>
+            </ul>
 		</div><!--/.navbar-collapse -->
+        </div>
 	</nav>
 </template>
 
 <script>
+    const ACTIVE_SUBMIT = 'paper-submit', ACTIVE_REVISE = 'paper-amend';
+    const ACTIVE_CHECK = 'paper-status', ACTIVE_COMMENT = 'paper-comments';
+
     module.exports = {
+        props: ['initialActive'],
         data(){
-            return {}
+            return {
+                currentActive: this.initialActive
+            }
         },
         methods: {
-            changeView: function(newView, newHeader, newSubtitle) {
-                this.$emit('update:header',newHeader);
+            changeView: function(newView) {
                 this.$emit('update:view',newView);
-                this.$emit('update:sub',newSubtitle);
+                this.currentActive = newView;
             }
+        },
+        computed: {
+            isSubmit() {
+                return this.currentActive === ACTIVE_SUBMIT;
+            },
+            isRevise() {
+                return this.currentActive === ACTIVE_REVISE;
+            },
+            isCheck() {
+                return this.currentActive === ACTIVE_CHECK;
+            },
+            isComment() {
+                return this.currentActive === ACTIVE_COMMENT;
+            },
         }
     }
 </script>

@@ -1,81 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
+
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
     <title>The ar&chi;ain</title>
 
-    <!-- Bootstrap -->
+    <!-- Bootstrap core CSS -->
     <link href="src/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <!-- Custom styles for this template -->
+    <link href="src/css/scrolling-nav.css" rel="stylesheet">
+
   </head>
-  <body>
-    <div class="container">
-      <div id="home"></div>
-    </div>
-    <div class="container">
-    <div class="jumbotron">
-          <br><br>
-          <div class="row">
-              <div class="col-sm-7">
-        <h1>Welcome to the ar&chi;ain!</h1>
-        <p> The first completely open access, distributed scientific journal.  <br><br> <a class="btn btn-primary btn-lg" href="/main.html" role="button">Submit a paper &raquo;</a></p>
-              </div>
-              <div class="col-sm-3">
-                  <img alt="the arxain" class="img-center" src="src/images/logo_name.png"</img>
-              </div>
-          </div>
-      </div>
-    </div>
 
-    <div class="container">
-      <div id="introHeader" class="row">
-      <div class="col-sm-12 col-md-12 col-lg-12">
-      <h2> Recently from the blockchain... </h2>
-      <br>
-      </div>
-      </div>
-    </div>
+  <body id="page-top">
 
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
       <div class="container">
-      <div id="articleRow" class="row">
-        <!-- ARTICLES LOAD HERE -->
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">ar&chi;ain</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#about-arxain">About ar&chi;ain</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#submitting">Submit</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#reviewing">Review</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#revising">Revise</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#about-us">Support</a>
+              </li>
+            </ul>
+        </div>
       </div>
-    </div>
+    </nav>
 
-    <div id="articleTemplate" style="display: none;">
-      <div class="col-sm-12 col-md-12 col-lg-12">
-        <div class="panel panel-default panel-article">
-          <div class="panel-heading">
-              <h3 class="panel-title"><a class="article-title" href=>My Paper Title</a></h3>
-          </div>
-          <div class="panel-body">
-            <br/>
-            <strong>Abstract</strong>:<br>
-            <p><span class="article-abstract">my first paper is this.</span></p><br/>
-            <strong>Authors</strong>: <span class="article-authors">Golden Retriever</span><br/>
-            <strong>Submitter Address</strong>: <span class="article-submitter">Golden Retriever</span><br/><br/>
-            <strong>Tags</strong>: <span class="article-tags">Warren, MI</span><br/><br/>
-            <strong>DOI</strong>: <span class="article-doi">Warren, MI</span><br/><br/>
-            <strong>Date Added</strong>: <span class="article-date">Warren, MI</span><br/><br/>
+    <header class="bg-light text-dark">
+      <div class="container text-center">
+        <h1>Welcome to the ar&chi;ain!</h1>
+        <p class="lead">The first completely open access, distributed scientific journal.</p>
+        <p> <a class="btn btn-primary btn-lg" href="/main.html" role="button">Submit a paper &raquo;</a></p>
+      </div>
+    </header>
+
+    <section id="about-arxain">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2>ar&chi;ain is a new kind of scientific journal.</h2>
+            <p class="lead">
+                ar&chi;ain is an interface between the InterPlanetaryFileSystem
+                (<a href=https://ipfs.io>IPFS</a>) and the
+                <a href=https://www.ethereum.org/>Ethereum</a> Blockchain, which
+                defines a protocol for submitting, reviewing and revising academic
+                papers in a completely open-access and distributed fashion.
+            </p>
+            <p class="lead">Choosing to host your work on ar&chi;ain has many benefits:</p>
+
+            <ul>
+              <li>
+                  It is <em>totally</em> open access. Everyone can query every paper,
+                  since on the Blockchain, "GET" functions are free.
+              </li>
+              <li>
+                  Get rapid feedback from the community as your peers upload their reviews of your paper.
+              </li>
+              <li>
+                  Publication costs are low (~$50).
+              </li>
+              <li>
+                  Papers are always accessible: there are no servers to "go down"... ever.
+                  On the Blockchain, we're all the sever!
+              </li>
+            </ul>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <section id="submitting" class="bg-secondary text-white">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2>Submitting a paper</h2>
+            <p class="lead">
+                To submit a paper to the ar&chi;ain, you first initialize an
+                Ethereum Smart Contract that will represent your paper on the
+                Blockchain.
+            </p>
+            <p class="lead">
+                You can then point your contract to track a PDF that you uploaded to IPFS.
+            </p>
+            <p class="lead">
+                IPFS hashes your PDF, and your contract is intialized using your Ethereum
+                wallet &mdash; so no-one can steal your work.
+            </p>
+            <p>
+              <a class="btn btn-primary btn-lg" href="/main.html#paper-submit" role="button">Submit a paper &raquo;</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reviewing">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2>Reviewing a paper</h2>
+            <p class="lead">
+                Reviewing a paper works very similarly to submitting one. You
+                initialize a Smart Contract that points to your review; a
+                document on IPFS.
+            </p>
+            <p class="lead">
+                You can link your review to an existing paper
+                on the ar&chi;ain, and mark it as "needs more work" or "accepted".
+                We'll handle the nitty-gritty.
+            </p>
+            <p>
+              <a class="btn btn-primary btn-lg" href="/main.html#paper-comments" role="button">Review a paper &raquo;</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="revising" class="bg-secondary text-white">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2>Revising a paper</h2>
+            <p class="lead">
+                Peer-review is critical to modern science, and revising your paper
+                in response to review comments helps to advance the field in general.
+            </p>
+            <p class="lead">
+                As with submissions and reviews, a revised paper is instantiated through
+                a Smart Contract. However, you can point your revised paper to the same
+                IPFS directory as your original one, and link it to that previous Smart Contract.
+            </p>
+            <p class="lead">
+                When the community reaches a concensus (an majority believe the paper should be accepted),
+                that manuscript receives a special badge from ar&chi;ain.
+            </p>
+            <p>
+              <a class="btn btn-primary btn-lg" href="/main.html#paper-amend" role="button">Revise a paper &raquo;</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about-us">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2>About Us</h2>
+            <p class="lead">
+                The first interation of the ar&chi;ain was created at PennAppsXVII
+                by 4 physics PhD candidates from the University of Pennsylvania.
+                They continue to maintain and develop the platform to make it the
+                best and most efficient journal it can be.
+            </p>
+            <!--- headshots can go here if we want.--->
+            <p><br></p>
+            <h2>Want to join us?</h2>
+            <p class="lead">
+                We care about making the scientific method as transparent and
+                reproducible as possible. If you have an interest in Solidity,
+                Full-Stack development,
+                Distributed Computing and/or
+                Open Source programming, we'd
+                love you to get involved!
+            </p>
+            <ul>
+              <li>
+                  Development takes place on <a href=https://github.com/arXain/arXain>Github</a>.
+              </li>
+              <li>
+                  Issues and Pull Requests are welcome, according to the
+                  <a href=https://github.com/david-hopper/arXain/blob/master/CONTRIBUTING.md>community guidelines</a>.
+              </li>
+              <li>
+                  Something something hosting IPFS node
+              </li>
+            </ul>
+
+            <p><br></p>
+            <h2>We value your support.</h2>
+            <p class="lead">
+                ar&chi;ain development is partially funded by the
+                <a href="http://www.1517fund.com/">1517 Fund</a>.
+            </p>
+            <p class="lead">
+                Donations are accepted for the wallets:
+                <ul>
+                  <li>ETH: 0x0</li>
+                  <li>BTC: 0x0</li>
+                </ul>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Haney, Hopper, Kohn & Mistry &copy; arXain.org 2018</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
     <script src="src/js/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="src/js/bootstrap.min.js"></script>
-    <script src="dist/build.js"></script>
-    <script src="src/js/app.js"></script>
+    <script src="src/js/bootstrap.bundle.min.js"></script>
+    <!-- Plugin JavaScript-->
+    <script src="src/js/jquery.easing.min.js"></script>
+    <!-- Custom JavaScript for this theme -->
+    <script src="src/js/scrolling-nav.js"></script>
+
+
   </body>
+
 </html>

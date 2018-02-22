@@ -17,14 +17,21 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body>
-    <div id="app">
-    </div>
+  <body class="bg-light">
+    <div id="app"></div>
+
+    <script language="JavaScript">
+        if(window.location.hash.substring(1) != '') {
+            document.getElementById("app").innerHTML = "<web3-box initial-view="+window.location.hash.substring(1)+" />"
+        } else {
+            document.getElementById("app").innerHTML = "<web3-box initial-view='paper-submit' />"
+        }
+    </script>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="src/js/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="src/js/bootstrap.min.js"></script>
+    <script src="src/js/bootstrap.bundle.min.js"></script>
     <script src="dist/build.js"></script>
   </body>
 </html>
