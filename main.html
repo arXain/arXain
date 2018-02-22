@@ -18,9 +18,15 @@
     <![endif]-->
   </head>
   <body class="bg-light">
-    <div id="app">
-        <web3-box initial-view="paper-submit" />
-    </div>
+    <div id="app"></div>
+
+    <script language="JavaScript">
+        if(window.location.hash.substring(1) != '') {
+            document.getElementById("app").innerHTML = "<web3-box initial-view="+window.location.hash.substring(1)+" />"
+        } else {
+            document.getElementById("app").innerHTML = "<web3-box initial-view='paper-submit' />"
+        }
+    </script>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="src/js/jquery.min.js"></script>

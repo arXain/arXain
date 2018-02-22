@@ -1,7 +1,8 @@
 <template>
 <div>
     <navbar-component 
-     @update:view="value => currentView = value">
+        :initialActive="currentView"
+        @update:view="value => currentView = value">
     </navbar-component>
     <page-heading-component :title="currentView"/>
     <main role="main" class="container">
