@@ -11,9 +11,14 @@ install:
     - conda config --set always_yes yes --set changeps1 no
     - conda update -q conda
     - conda info -a
-    #
-    # XXX need to install and configure ipfs
-    #
+    # download and install ipfs and return to home directory
+    - wget https://dist.ipfs.io/go-ipfs/v0.4.13/go-ipfs_v0.4.13_linux-amd64.tar.gz
+    - tar xvfz go-ipfs_v0.4.13_linux-amd64.tar.gz
+    - cd go-ipfs
+    - ./install.sh
+    - cd ..
+    # initialize ipfs
+    - ipfs init
     # create env and install dependencies
     - conda create -q -n test-environment python=$TRAVIS_PYTHON_VERSION nose pip
     - source activate test-environment
