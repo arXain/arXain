@@ -2,13 +2,17 @@
   <img src="https://github.com/david-hopper/arXain/blob/master/src/images/logo_name.png" alt="arXain" /></center>
 </p>
 
+[![Build Status](https://travis-ci.org/arXain/arXain.svg?branch=master)](https://travis-ci.org/arXain/arXain/master)
+[![Coverage Status](https://coveralls.io/repos/github/arXain/arXain/badge.svg?branch=master)](https://coveralls.io/github/arXain/arXain?branch=master)
+
+
 Welcome to the arXain, an open source academic journal wich combines a distributed index and a distributed file network to completely decentralize the process. This allows us to replicate many of the features that traditional academic journals and pre-print servers provide, but in an open-source, decentralized fashion. Instead of centralized journals storing and hosting all academic manuscripts, the users of arXain will store, backup, and host their own manuscripts. This strategy has the benefits of reduced bandwidth, reduced hosting fees, and decreased submit to "public" time. The use of blockchain allows us to autonomously implement the peer review process. No longer are reviews shuttled between a third party and the authors and reviewers, as the blockchain mantains a public history of these exchanges. We hope that arXain will allow scientists to focus on what they do best, science.
 
 ## Getting started
 
 ### Requirements
 
-Below are the requirements for running the development version of arXain. You may choose to use other tools where applicable, but we do not support them. Feel free to test and submit a pull request if any changes need to be made to accomdate these alternative tools.
+Below are the requirements for running the development version of arXain. You may choose to use other tools where applicable, but we do not support them. Feel free to test and submit a pull request if any changes need to be made to accommodate these alternative tools.
 
 * OSX/Linux (Windows not officially supported yet)
 * [go-ipfs v0.4.13](https://dist.ipfs.io/#go-ipfs)
@@ -42,7 +46,7 @@ There are a few components that need to be running in order for an arXain develo
     - Builds the webpack bundle of all the javascript. Configuration for building in `webpack.config.js`. All you need to do is include `dist/build.js` in any html file.
 - Establish the default connection to a blockchain by editing `truffle.js` to point to where your testRPC is running.
 - `$ npm install -g truffle`
-    - You may need to use sudo to install it. 
+    - You may need to use sudo to install it.
 - `$ npm install -g ganache-cli` and then simply `$ ganache-cli` to run it.
     - This is to run a blockchain locally for testing.
     - The default port it runs on is 8545.
@@ -80,4 +84,3 @@ This project would not be possible without the huge amount of work done on Ether
 ## News
 
 - Won "Best Blockchain Hack" and "Most Promising Hack" at [PennApps 2018](https://devpost.com/software/arxain)
-
