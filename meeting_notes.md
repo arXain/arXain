@@ -1,4 +1,27 @@
 ------
+**2/27/2018**
+
+Recap:
+
+ Moved arXain to public arXain/arXain repo and licensed with GNU GPL3. Travis CI integration underway!
+ 
+Notes:
+* Bijan and Khilesh working on integrating all contracts on meta-data branch
+
+* Decided on GNU GPL3 license
+
+* Moved to public repo under organization arXain
+
+* David brings up good point about user's running ETH nodes for multi-user tests. Right now we will use testnet on AWS as centralized minichain
+
+* Saul showed intro to Travis CI. Awesome! Travis CI first succesful test! 
+
+To Dos:
+* Saul/Khilesh MongoDB investigations this week
+* Bijan/Khilesh fix contracts
+* David pinning documents/pyXain dev
+
+------
 **2/13/2018**
 
 Recap:
