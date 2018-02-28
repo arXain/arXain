@@ -35,8 +35,10 @@ install:
     - export FLASK_DEBUG=true
     # run server/daemon
     - flask run &
+    - sleep 5
     - ./go-ipfs/ipfs daemon &
-
+    - sleep 5
+    
 script:
     - nosetests node_client/pyXain/test/test_pyXain.py --with-coverage --cover-package=pyXain
 
