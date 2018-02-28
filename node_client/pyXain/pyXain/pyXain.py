@@ -3,8 +3,6 @@ import ipfsapi
 import json
 from distutils.dir_util import copy_tree
 from werkzeug.utils import secure_filename
-from glob import glob
-from . import ipfscmd
 #import PyPDF2 # for pdf file parsing in the future
 
 class pyXain(object):
@@ -213,25 +211,15 @@ class pyXain(object):
             output['Message'] = "Author ID {:s} not initialized.".format(author_id)
             return output
 
-
-        # Find the pdf file in the directory
-        pdf_file_name = self.get_extension('pdf', paper_directory)
-
-        # Ensure only one pdf is being uploaded
-        if len(pdf_file_name) is not 1:
-            output = {}
-            output['Success'] = False
-            output['Message'] = "Only one PDF can be uploaded"
-            return output
-
         # TODO:
-        # Check whether the PDF is valid for upload. # pages, file size?
+        # Find the necessary files in the directory
+
+        # Check that a valid manuscript file has been provided (pdf only, <=4 pages)
+        #manuscript_result = self.check_manuscript_file(pdf_location)
+
         # return the error message if the manuscript check failed
-
-        # Force rename the file to the paper_id
-        os.rename(pdf_file_name[0], os.path.join(paper_directory, paper_id+'.pdf'))
-
-        # TODO:
+        #if not manuscript_result['Success']:
+        #    return manuscript_result
 
         # Check metadata validity
 
@@ -268,13 +256,7 @@ class pyXain(object):
         # large directory. More recent versions have this, but I haven't tried building
         # them from source to try out. This should be remedied in the future.
         try :
-            # go-ipfs api v0.4.7 has a bug that prevents recursively adding directories.
-            # try this out with later go-ips versions, I think they should have fixed it
-            # but it isn't released
-            #reply = self.api.add(ipfs_paper_path, recursive=True)
-
-            # Use the subprocess version to recursively add the whole paper directory
-            dir_hash = ipfscmd.add_recursive(ipfs_paper_path)
+            reply = self.api.add(version_path, recursive=True)
         except :
             # If any error occurs just return a sign of failure
             output = {}
@@ -285,6 +267,7 @@ class pyXain(object):
 
             return output
 
+        direc_hash = reply[-1]
         # save hash data to local database?
 
         # success message along with hash and version #
@@ -292,7 +275,7 @@ class pyXain(object):
         output = {}
         output['Success'] = True
         output['Version'] = v_string
-        output['Hash'] = dir_hash
+        output['Hash'] = direc_hash['Hash']
 
         return output
 
@@ -360,18 +343,12 @@ class pyXain(object):
             output['Message'] = "Author ID {:s} not initialized.".format(author_id)
             return output
 
-        # Find the pdf file in the directory
-        text_file_name = self.get_extension('txt', comment_directory)
-        print(text_file_name)
-        # Ensure only one pdf is being uploaded
-        if len(text_file_name) is not 1:
-            output = {}
-            output['Success'] = False
-            output['Message'] = "Only one .txt file can be uploaded"
-            return output
-
         # TODO:
         # Find the necessary files in the directory
+
+        # Check that a valid comment has been provided
+
+        # return the error message if the comment check failed
 
         # return error message if the metadata check failed
 
@@ -406,14 +383,7 @@ class pyXain(object):
         # large directory. More recent versions have this, but I haven't tried building
         # them from source to try out. This should be remedied in the future.
         try :
-            # go-ipfs api v0.4.7 has a bug that prevents recursively adding directories.
-            # try this out with later go-ips versions, I think they should have fixed it
-            # but it isn't released
-            #reply = self.api.add(ipfs_paper_path, recursive=True)
-
-            # Use the subprocess version to recursively add the whole paper directory
-            dir_hash = ipfscmd.add_recursive(ipfs_comm_path)
-
+            reply = self.api.add(version_path, recursive=True)
         except :
             # If any error occurs just return a sign of failure
             output = {}
@@ -424,6 +394,7 @@ class pyXain(object):
 
             return output
 
+        direc_hash = reply[-1]
         # save hash data to local database?
 
         # success message along with hash and version #
@@ -431,36 +402,19 @@ class pyXain(object):
         output = {}
         output['Success'] = True
         output['Version'] = v_string
-        output['Hash'] = dir_hash
+        output['Hash'] = direc_hash['Hash']
 
         return output
 
     def check_author(self, author_id):
         """Check whether the author ID has been created in the local directory. """
         author_path = os.path.join(self.arxain_path, 'authors', author_id)
-        print('self.arxain_path:')
-        print(self.arxain_path)
-        print('author_path:')
-        print(author_path)
         result = os.path.exists(author_path)
 
         output = {}
         output['Success'] = result
         output['author_path'] = author_path
         return output
-
-    def get_extension(self, extension, directory):
-        """ Check a directory for all files that have the extension ext
-
-        Inputs:
-            self: the pyXain class
-            ext: the file extension being searched for
-            directory: the full path of the directory
-
-        Output:
-            a list of full path file names that match the extension in the directory provided
-        """
-        return glob(os.path.join(directory,"*.{}".format(extension)))
 
     def check_manuscript_file(self, pdf_location):
         """Verify that the files submitted for a manuscript are valid"""
