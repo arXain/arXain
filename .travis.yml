@@ -14,11 +14,12 @@ install:
     # download and install ipfs and return to home directory
     - wget https://dist.ipfs.io/go-ipfs/v0.4.13/go-ipfs_v0.4.13_linux-amd64.tar.gz
     - tar xvfz go-ipfs_v0.4.13_linux-amd64.tar.gz
-    - cd go-ipfs
-    - ./install.sh
-    - cd ..
+    #- cd go-ipfs
+    #- export PATH=${pwd}:$PATH
+    # XXX - ./install.sh
+    #- cd ..
     # initialize ipfs
-    - ipfs init
+    - ./go-ipfs/ipfs init
     # create env and install dependencies
     - conda create -q -n test-environment python=$TRAVIS_PYTHON_VERSION nose pip
     - source activate test-environment
@@ -28,16 +29,18 @@ install:
     - pip install --editable .
     - cd ../node
     - pip install --editable .
-    - cd ~/
+    - cd ../../
     # set env variables
     - export FLASK_APP=node
     - export FLASK_DEBUG=true
     # run server/daemon
     - flask run &
-    - ipfs daemon &
-
+    - sleep 5
+    - ./go-ipfs/ipfs daemon &
+    - sleep 5
+    
 script:
-    - nosetests pyXain/test/test_pyXain.py --with-coverage --cover-package=pyXain
+    - nosetests node_client/pyXain/test/test_pyXain.py --with-coverage --cover-package=pyXain
 
 after_success:
     - coveralls
