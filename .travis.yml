@@ -15,7 +15,8 @@ install:
     - wget https://dist.ipfs.io/go-ipfs/v0.4.13/go-ipfs_v0.4.13_linux-amd64.tar.gz
     - tar xvfz go-ipfs_v0.4.13_linux-amd64.tar.gz
     - cd go-ipfs
-    - ./install.sh
+    - export PATH=${pwd}:$PATH
+    # XXX - ./install.sh
     - cd ..
     # initialize ipfs
     - ipfs init
@@ -28,7 +29,7 @@ install:
     - pip install --editable .
     - cd ../node
     - pip install --editable .
-    - cd ~/
+    - cd ..
     # set env variables
     - export FLASK_APP=node
     - export FLASK_DEBUG=true
