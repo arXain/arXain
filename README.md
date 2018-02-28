@@ -2,6 +2,10 @@
   <img src="https://github.com/david-hopper/arXain/blob/master/src/images/logo_name.png" alt="arXain" /></center>
 </p>
 
+[![Build Status](https://travis-ci.org/arXain/arXain.svg?branch=master)](https://travis-ci.org/arXain/arXain/master)
+[![Coverage Status](https://coveralls.io/repos/github/arXain/arXain/badge.svg?branch=master)](https://coveralls.io/github/arXain/arXain?branch=master)
+
+
 Welcome to the arXain, an open source academic journal wich combines a distributed index and a distributed file network to completely decentralize the process. This allows us to replicate many of the features that traditional academic journals and pre-print servers provide, but in an open-source, decentralized fashion. Instead of centralized journals storing and hosting all academic manuscripts, the users of arXain will store, backup, and host their own manuscripts. This strategy has the benefits of reduced bandwidth, reduced hosting fees, and decreased submit to "public" time. The use of blockchain allows us to autonomously implement the peer review process. No longer are reviews shuttled between a third party and the authors and reviewers, as the blockchain mantains a public history of these exchanges. We hope that arXain will allow scientists to focus on what they do best, science.
 
 ## Getting started
