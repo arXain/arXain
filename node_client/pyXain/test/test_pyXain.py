@@ -16,6 +16,10 @@ class TestPyXain(object):
 
         assert(results['Success'] == True)
 
+        #try again
+        results = pyx.init_arxain()
+        assert(results['Success'] == True)
+
     def test_init_author(self):
         # Test creating an author
         pyx = pyXain()
@@ -23,14 +27,24 @@ class TestPyXain(object):
 
         assert(result['Success'] == True)
 
+        #try again
+        results = pyx.init_author('test_author')
+        assert(results['Success'] == True)
+
     def test_submit_manuscript(self):
         pyx = pyXain()
 
         # Get the test pdf in the folder
         curr_dir = os.path.dirname(os.path.abspath(__file__))
-        result = pyx.submit_manuscript('test_author', 'test_paper', os.path.join(curr_dir, 'test-paper'))
 
+        result = pyx.submit_manuscript('test_author', 'test_paper', os.path.join(curr_dir, 'test-paper'))
+        print(result)
         assert(result['Success'] == True)
+
+        # submit with wrong author
+        result = pyx.submit_manuscript('not_an_initiallized_author', 'test_paper', os.path.join(curr_dir, 'test-paper'))
+        print(result)
+        assert(result['Success'] == False)
 
     def test_submit_revision(self):
         pyx = pyXain()
@@ -38,8 +52,13 @@ class TestPyXain(object):
         # Get the test pdf in the folder
         curr_dir = os.path.dirname(os.path.abspath(__file__))
         result = pyx.submit_revision('test_author', 'test_paper', os.path.join(curr_dir, 'test-paper'))
-
+        print(result)
         assert(result['Success'] == True)
+
+        # submit with wrong author
+        result = pyx.submit_revision('not_an_initiallized_author', 'test_paper', os.path.join(curr_dir, 'test-paper'))
+
+        assert(result['Success'] == False)
 
     def test_submit_comment(self):
         pyx = pyXain()
@@ -47,8 +66,13 @@ class TestPyXain(object):
         # Get the test pdf in the folder
         curr_dir = os.path.dirname(os.path.abspath(__file__))
         result = pyx.submit_comment('test_author', 'test_paper', os.path.join(curr_dir, 'test-comment'))
-
+        print(result)
         assert(result['Success'] == True)
+
+        # submit with wrong author
+        result = pyx.submit_comment('not_an_initiallized_author', 'test_paper', os.path.join(curr_dir, 'test-comment'))
+
+        assert(result['Success'] == False)
 
     """
     THIS IS FAILING FOR SOME REASON... UPDATE THIS IN THE FUTURE
@@ -65,23 +89,20 @@ class TestPyXain(object):
 
         # Check an invalid author
         result_false = pyx.check_author('NotAnAuthor!')
-
         # check_author should return false when an invalid author is sent
+
         assert(result_false['Success'] == False)
-        """
+        
 
-"""
-pyx = pyXain()
+        assert(result_false['Success'] == False)
+    """
 
-print('init_arXain:')
-results = pyx.init_arXain()
-print(results)
+    def test_get_extension(self):
+        pyx = pyXain()
 
-results = pyx.init_author("/Users/davidhopper/test", "0x100")
-print("init_author:")
-print(results)
+        # check if the pdf is found in the test-paper directory
+        curr_dir = os.path.dirname(os.path.abspath(__file__))
+        file_names = pyx.get_extension('pdf', os.path.join(curr_dir, 'test-paper'))
 
-results = pyx.submit_manuscript("0x100", "1x001", "/Users/davidhopper/arXain/test_submissions/genesis-article")
-print("submit_manuscript:")
-print(results)
-"""
+        base_name = [os.path.basename(x) for x in file_names]
+        assert(base_name[0] == 'test_paper.pdf')
