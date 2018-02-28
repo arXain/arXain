@@ -8,7 +8,7 @@ Welcome to the arXain, an open source academic journal wich combines a distribut
 
 ### Requirements
 
-Below are the requirements for running the development version of arXain. You may choose to use other tools where applicable, but we do not support them. Feel free to test and submit a pull request if any changes need to be made to accomdate these alternative tools.
+Below are the requirements for running the development version of arXain. You may choose to use other tools where applicable, but we do not support them. Feel free to test and submit a pull request if any changes need to be made to accommodate these alternative tools.
 
 * OSX/Linux (Windows not officially supported yet)
 * [go-ipfs v0.4.13](https://dist.ipfs.io/#go-ipfs)
@@ -42,7 +42,7 @@ There are a few components that need to be running in order for an arXain develo
     - Builds the webpack bundle of all the javascript. Configuration for building in `webpack.config.js`. All you need to do is include `dist/build.js` in any html file.
 - Establish the default connection to a blockchain by editing `truffle.js` to point to where your testRPC is running.
 - `$ npm install -g truffle`
-    - You may need to use sudo to install it. 
+    - You may need to use sudo to install it.
 - `$ npm install -g ganache-cli` and then simply `$ ganache-cli` to run it.
     - This is to run a blockchain locally for testing.
     - The default port it runs on is 8545.
@@ -80,4 +80,3 @@ This project would not be possible without the huge amount of work done on Ether
 ## News
 
 - Won "Best Blockchain Hack" and "Most Promising Hack" at [PennApps 2018](https://devpost.com/software/arxain)
-
