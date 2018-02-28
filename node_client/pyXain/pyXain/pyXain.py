@@ -3,6 +3,7 @@ import ipfsapi
 import json
 from distutils.dir_util import copy_tree
 from werkzeug.utils import secure_filename
+import subprocess
 #import PyPDF2 # for pdf file parsing in the future
 
 class pyXain(object):
@@ -410,7 +411,8 @@ class pyXain(object):
         """Check whether the author ID has been created in the local directory. """
         author_path = os.path.join(self.arxain_path, 'authors', author_id)
         result = os.path.exists(author_path)
-        print(os.system('ls {0}/*/*'.format(self.arxain_path)))
+        proc = subprocess.Popen('ls {0}/*/*'.format(self.arxain_path), stdout=subprocess.PIPE, shell=True)
+        print(proc.stdout.read())
         print(self.arxain_path)
         print(author_path)
         print(result)
