@@ -410,10 +410,15 @@ class pyXain(object):
         """Check whether the author ID has been created in the local directory. """
         author_path = os.path.join(self.arxain_path, 'authors', author_id)
         result = os.path.exists(author_path)
+<<<<<<< HEAD
 
         print(self.arxain_path)
         print(author_path)
         print(result)
+=======
+        print(self.arxain_path)
+        print(author_path)
+>>>>>>> 0087ea4cd9d3b4d5385118c4eadd61d254e5fb67
         output = {}
         output['Success'] = result
         output['author_path'] = author_path
