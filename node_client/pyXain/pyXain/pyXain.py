@@ -411,6 +411,9 @@ class pyXain(object):
         author_path = os.path.join(self.arxain_path, 'authors', author_id)
         result = os.path.exists(author_path)
 
+        print(self.arxain_path)
+        print(author_path)
+        print(result)
         output = {}
         output['Success'] = result
         output['author_path'] = author_path
