@@ -75,7 +75,7 @@ arXain was founded and is maintained by four Physics PhD students from the Unive
 
 ## License
 
-arXain is distributed under a "insert license" and can be found in the LICENSE.md file
+arXain is distributed under the GNU GPLv3 and can be found in the [LICENSE.md](LICENSE.md) file.
 
 ## Acknowledgements
 
