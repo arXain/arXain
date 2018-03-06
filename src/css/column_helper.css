@@ -9,20 +9,12 @@
 .team .item{
  position: relative;
 }
-.team .des{
- background: #00008B;
- color: #fff;
- text-align: center;
- border-bottom-left-radius: 93%;
- transition:.3s ease-in-out;
-}
-.team .item:hover .des{
- height: 40%;
- background: #6495ED;
- opacity: 0.5;
- position: absolute;
- width: 89%;
- padding: 5em;
- top: 0;
- border-bottom-left-radius: 0;
+
+.bg1 {
+    background-image: url("../src/images/cubes-abstract-wallpaper.jpg");
+    height: 150px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
