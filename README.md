@@ -50,8 +50,8 @@ There are a few components that need to be running in order for an arXain develo
 - `$ npm install -g ganache-cli` and then simply `$ ganache-cli` to run it.
     - This is to run a blockchain locally for testing.
     - The default port it runs on is 8545.
-- `$ truffle compile && truffle migrate`
-    - This will compile the contracts written in solidity into a form such that they interact with javascript. `truffle migrate` then migrates your contract to the blockchain.
+- `$ truffle compile `
+    - This will compile the contracts written in solidity into a form such that they interact with javascript.
 - `$ npm run dev`
     - Launches the dev server on port 4000.
 - View the website at http://127.0.0.1:4000

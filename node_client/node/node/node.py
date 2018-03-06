@@ -89,6 +89,10 @@ def upload_file():
         if file.filename == '':
             flash('No selected file')
             file_present = False
+        # check if the post request has the metadata part
+        if not request.form['meta']:
+            flash('No metadata')
+        # save the paper PDF
         if file and allowed_file(file.filename):
             #make an upload dir if it doesn't exist
             folder = pyx.arxain_path+'/upload'
@@ -106,8 +110,15 @@ def upload_file():
             filename = secure_filename(file.filename)
             file.save(os.path.join(pyx.arxain_path, 'upload', filename))
             file_path = pyx.arxain_path+'/upload'
-            print(file_path)
             file_present = True
+            # save the metadata
+            meta_string = request.form['meta']
+            if meta_string:
+                #copy metadata to upload folder
+                metaname = secure_filename('meta.json')
+                metafile = open(os.path.join(pyx.arxain_path, 'upload', metaname), 'w')
+                metafile.write(meta_string)
+                metafile.close
     results = {}
     results['Success'] = file_present
     results['fileDirectory'] = file_path

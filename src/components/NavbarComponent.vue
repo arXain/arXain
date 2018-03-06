@@ -9,21 +9,21 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarResponsive">
             <ul class="navbar-nav nav-fill">
 			<li class="nav-item">
-                <a class="nav-link" v-bind:class="{active: isSubmit}"
-                  @click="changeView('paper-submit')"
+                <a class="nav-link" v-bind:class="{active: isSubmit}" 
+                  @click="changeView('paper-submit')" 
                   href="#">Submit a paper
-              </a>
-			</li>
-			<li class="nav-item">
-                <a class="nav-link" v-bind:class=" {active: isRevise} "
-                  @click="changeView('paper-amend');"
-                  href="#">Revise a paper
               </a>
 			</li>
             <li class="nav-item">
                 <a class="nav-link" v-bind:class=" {active: isComment} "
                 @click="changeView('paper-comments')"
                 href="#">Review a paper
+              </a>
+			</li>
+			<li class="nav-item">
+                <a class="nav-link" v-bind:class=" {active: isRevise} "
+                  @click="changeView('paper-amend');"
+                  href="#">Revise a paper
               </a>
 			</li>
 			<li class="nav-item">

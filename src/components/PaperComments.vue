@@ -43,7 +43,7 @@ export default {
             commentHash: '',
             contractAddr: '',
             picked: 999,
-            contract: 'Paper',
+            contract: ['Paper','Comments'],
             contractData: {},
             contractArtifacts: {},
             message: ''

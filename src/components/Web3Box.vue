@@ -74,7 +74,7 @@ export default {
             if (response.data.Success) {
                 el.ipfsMessage = "✅  ";
             } else {
-                el.ipfsMessage = "❌ Error: Could not GET init.";
+                el.ipfsMessage = "❌ : "+response.data.Message;
             }
         }).catch(function (error) {
             el.ipfsMessage = "❌  "+error+". Is your IPFS node running?";
