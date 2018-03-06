@@ -15,11 +15,6 @@ install:
     - wget https://dist.ipfs.io/go-ipfs/v0.4.13/go-ipfs_v0.4.13_linux-amd64.tar.gz
     - tar xvfz go-ipfs_v0.4.13_linux-amd64.tar.gz
     - export PATH=$PATH:$PWD/go-ipfs/
-    #- cd go-ipfs
-    #- ./install.sh
-    #- cd ..
-    # initialize ipfs
-    #- ipfs init
     - ipfs init
     # create env and install dependencies
     - conda create -q -n test-environment python=$TRAVIS_PYTHON_VERSION nose pip
@@ -41,7 +36,7 @@ install:
     - sleep 5
 
 script:
-    - nosetests node_client/pyXain/test/ --with-coverage --cover-package=pyXain
+    - nosetests node_client/pyXain/test/ --with-coverage --cover-package=pyXain --verbose
 
 after_success:
     - coveralls

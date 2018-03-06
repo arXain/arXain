@@ -1,0 +1,11 @@
+{
+	"title" : "arXain genesis paper",
+	"authors" : "Haney, Bijan; Hopper, David; Kohn, Saul; Mistry, Khilesh",
+	"abstract" : "This is the first paper on arXain, the distributed academic journal.",
+	"tags" : ["first", "genesis", "arXain"],
+	"timestamp" : "January 20, 2018 16:03:32",
+	"doi" : "0x12345_1",
+	"submitter" : "0x627306090abaB3A6e1400e9345bC60c78a8BEf57",
+	"revision#" : 1,
+	"reviewStatus" : [0]
+}
