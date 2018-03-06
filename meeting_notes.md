@@ -1,4 +1,51 @@
 ------
+**3/5/2018**
+
+Recap:
+
+- Khilesh demoed his mongodb example of scraping the arXiv, and him and Saul tested searching which appears to be very fast. Looks like we can move forwards with that for our backend! Merged in the clean-pyXain and meta-data branches from David and Bijan for handling edge cases cases.
+
+- Saul: Mongodb will be kept on our server and keep track all meta data posted to the arXain (our service)
+
+- How to keep track of other nodes submitting through pub-sub or some other messaging protocol? Submit the contract address and directory hash (and version?) so we can grab the meta data and store it on our server. also watch the block chain.
+
+- Need to look into pub-sub! - David
+
+- Bijan and David: Decided that we need to have a way of removing material posted to IPFS, but for some reason didn’t get published to the blockchain. There must also be another handshake between the final submission and pyXain that locks down a paper from being removed.
+
+- Creating the submit comment page:
+  - authors can comment on their own, notifying of a new version and 
+
+  - the submitter of a comment should be stored in the comment contract
+
+  - Can we curate a list of approved individuals, equate ethereum wallet address and identity
+
+  - As contracts increase in size (say a lot of comments are added) it costs more to add to it. prevent trolls
+
+  - Comment contract should not allow the submitting author(s) to vote on whether it is publishable - Khilesh taking this.
+
+  - meta data should contain the following information
+	   - list of previous commenters
+	   - time of comment
+	   - version of paper
+	   - comment submitter
+	   - vote status
+
+  - comment contract should record who voted accepted or rejected and those people can change their status
+
+To-Do:
+
+Start separating out major projects in the arXain organization
+	
+ - arXain-node, open source,  David 
+	
+ - backend searching, propietary, Khilesh and Saul
+	
+ - website + contracts - open source - Bijan
+	
+ - meeting notes - open  - David
+
+------
 **2/27/2018**
 
 Recap:
