@@ -1,13 +1,13 @@
 pragma solidity ^0.4.11;
 
 contract arXainBase{
-  bytes32[] papers;
+  address[] papers;
 
-  function pushPaper(bytes32 _paperHash) public{
+  function addPaper(address _paperHash) public{
     papers.push(_paperHash);
   }
   
-  function getPapers() public constant returns (bytes32[] _papers) {
+  function getPapers() view public returns (address[] _papers) {
     return papers;
   }
 }

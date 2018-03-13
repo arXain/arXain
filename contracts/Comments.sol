@@ -2,36 +2,54 @@ pragma solidity ^0.4.11;
 
 contract Comments{
   
-  //bytes32[] comments;
-  string comments;
   address contractAddress;
-  uint8 nInReview;
-  uint8 nAccepted;
+  
+  struct Reviewer {
+    string commentHash;
+    uint8 status;
+  }
+ 
+  mapping(address => Reviewer) reviewers;
+  address[] reviewerAccounts;
   
   function Comments(address _contractAddress) public{
     contractAddress = _contractAddress;
-    nInReview=0;
-    nAccepted=0;
   }
   
-  function review(string _commentHash, bool _ans) public{
-    comments = _commentHash;
-    //comments.push(_commentHash);
-    if(_ans == true)
-      nAccepted++;
-    else if(_ans == false)
-      nInReview++;
+  function review(string _commentHash, uint8 _status) public{
+    
+    var reviewer=reviewers[msg.sender];
+    reviewer.commentHash = _commentHash;
+    reviewer.status = _status;
+    
+    reviewerAccounts.push(msg.sender) -1;
+
   }
 
-  function getAddress() public constant returns (address _contractAddress) {
+  function getPaperAddress() view public returns (address) {
     return contractAddress;
   }
 
-  function getComments() public constant returns (string _comments) {
-    return comments;
+  function getComment(address _address) view public returns (string,uint8) {
+    return (reviewers[_address].commentHash, reviewers[_address].status);
   }
 
-  function getStatus() public constant returns (uint8 _nAccepted, uint8 _nInReview){
+  function getReviewers() view public returns (address[]) {
+    return reviewerAccounts;
+  }
+  
+  function getCommentsLength() view public returns (uint) {
+        return reviewerAccounts.length;
+  }
+
+  function getStatus() view public returns (uint8,uint8){
+    uint8 nAccepted = 0; uint8 nInReview = 0;
+    for (uint i = 0; i < reviewerAccounts.length; i++) {
+      if(reviewers[reviewerAccounts[i]].status == 0)
+        nInReview++;
+      else if(reviewers[reviewerAccounts[i]].status == 0)
+        nAccepted++;
+    }
     return (nAccepted, nInReview);
   }
  

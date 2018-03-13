@@ -34,10 +34,10 @@ contract Organizations{
   //  }
   //}
   //
-  //function orgName() public constant return(string){
+  //function orgName() public view return(string){
   //  return org.name
   //}
-  //function getMembers() public constant returns (address[] _members) {
+  //function getMembers() public view returns (address[] _members) {
   //  return organization;
   //}
 }

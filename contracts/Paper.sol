@@ -38,25 +38,10 @@ contract Paper{
     authorsMap[msg.sender] = 1;
   }
 
-  function getPaper2() public constant returns (
-    address _author, string _paperHash, int8 _revision,
-    uint8 _nAccepted, uint8 _nInReview, address _commentAddr) {
-    uint8 nA = 0;
-    uint8 nR = 0;
-
-    return(authors[0], paperHash, revision, nA, nR, commentAddr);
+  function getPaper() view public returns (address[],string,int8,address) {
+    return(authors, paperHash, revision, commentAddr);
     }
 
-  function getPaper3() public constant returns (
-    address _author, string _paperHash, int8 _revision,
-    uint8 _nAccepted, uint8 _nInReview, address _commentAddr) {
-    Comments co = Comments(_commentAddr);
-    uint8 nA = 0;
-    uint8 nR = 0;
-    (nA,nR) = co.getStatus();
-
-    return(authors[0], paperHash, revision, nA, nR, 0x0);
-    }
   function initPaper(string _paperHash, address _commentAddr) public onlyAuthors constructOnce{
     paperHash = _paperHash;
     commentAddr = _commentAddr; 
@@ -71,9 +56,5 @@ contract Paper{
     revision++;
   }
 
-}
-
-contract Comments{
-  function getStatus() public constant returns (uint8 _nAccepted, uint8 _nInReview);
 }
 
